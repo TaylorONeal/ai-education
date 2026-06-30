@@ -17,6 +17,8 @@ This skill ingests everything into one organized folder of Markdown notes with a
 - A destination folder for the brain (a plain folder on disk is enough).
 - Optionally, a Notion workspace or an Obsidian vault if you want it synced there too.
 
+You do not have to track down every URL and file yourself. If the agent is connected to Canvas or your LMS, you can point it at the course and have it find the reading-module pages, assignments, and past exams on its own, instead of listing each source by hand. See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for walking every past term in one pass.
+
 ## What it builds
 
 One note per source item, in a consistent folder tree, each note a Markdown file with frontmatter so it is findable and an agent can load only what it needs.

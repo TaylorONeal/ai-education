@@ -18,6 +18,8 @@ This skill turns graded coursework into a per-student exam projection with a con
 - The exam structure: how many points are multiple choice versus open response, and which topics carry weight.
 - Optionally, prior course history (past terms) to calibrate the difficulty discount.
 
+You can paste the gradebook and history, or, if the agent is connected to Canvas or your LMS, have it pull the current scores and the prior-term gradebooks itself instead of exporting them by hand. Wherever a prompt below says `[PASTE OR ATTACH SCORES]`, that becomes "read the gradebook from the course." See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for pulling multi-term history.
+
 ## What predicts and what is just noise
 
 This is the core of getting it right. Score assignments by how closely they exercise the same cognitive task as the exam:
