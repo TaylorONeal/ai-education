@@ -64,7 +64,16 @@ A blank template in this exact format ships with the skill at `grading-template.
 
 ## The connected version, in detail
 
-Pointed at your submission queue, it does a first pass on the whole stack and returns two things: a scored table, and a separate "review these" list holding the differently-worded answers, the scenario-confusion cases, and any low-confidence calls. You work the review list, adjust, and post. The full stack is never auto-posted. When you batch-submit through your LMS, keep the grades hidden until you have read the distribution and signed off.
+Pointed at your submission queue, it does a first pass on the whole stack and returns two things: a scored table, and a separate "review these" list holding the differently-worded answers, the scenario-confusion cases, and any low-confidence calls. You work the review list, adjust, and then choose how it ends.
+
+## Two ways to finish
+
+The skill defaults to producing an artifact and stopping. Putting grades into the LMS is a separate, opt-in step with a hard prerequisite. The SKILL.md spells out both; the short version:
+
+- Mode 1, the default: the AI produces the grading spreadsheet (the `grading-template.xlsx` format or a Google Sheet with the same columns) with estimated scores and notes, and stops. Nothing touches your LMS. You keep the file as your record and enter grades yourself, on your schedule. If you are unsure, this is the mode you want.
+- Mode 2, opt-in: an agent enters the reviewed grades into Canvas, but only after the assignment's grades are set to hidden so students see nothing while it works. Hide first (set the column's Grade Posting Policy to Manual and confirm the crossed-eye indicator), enter the reviewed scores as hidden, read the distribution, and only then manually Post grades. The agent stops at "entered but hidden"; releasing grades is your action alone. The hide-then-post mechanics and the SpeedGrader keyboard-Enter save bug are in `../../guides/canvas-lms.md`, and the equivalents for other platforms are in `../../guides/other-lms.md`.
+
+Whichever mode you pick, the full stack is never auto-posted and no grade is released without your explicit, deliberate Post action.
 
 ## The guardrail and your records
 

@@ -6,7 +6,7 @@ Last updated: 2026-06-30.
 
 ## Update (2026-06-30, sixth pass: teacher-first onboarding + OSS scaffold)
 
-Reframed the front door for medium-low technical teachers and added the open-source scaffolding. No skill prompts changed, so the cookbook is unchanged and does not need regenerating.
+Reframed the front door for medium-low technical teachers, added the open-source scaffolding, and expanded the grading-assistant skill with a worked example and two explicit finish modes.
 
 - Rewrote `README.md` as a funnel instead of an essay: an "Is this for you?" hook, a 10-minute first win (announcement-writer, zero setup), and the value thesis and skill index moved below the fold. Kept tool-agnostic positioning at level 1.
 - Reframed the three automation tiers around effort reduction, per the decision that a plain LLM misses most of the point. The new framing is a ladder: level 1 plain AI chat (you still do the gathering and clicking), level 2 AI chat plus installed skills (expert, consistent, no re-teaching), level 3 an AI that controls your computer plus skills (it gathers and clicks, you approve). Claude Cowork is named as the headline example of level 3, alongside AI browser extensions and agentic browsers. This is the "AI that gives you words vs AI that does the work" story.
@@ -16,6 +16,8 @@ Reframed the front door for medium-low technical teachers and added the open-sou
 - New `CONTRIBUTING.md`: leads with the easiest contribution (add your subject pack, ~1 hour, no Git required via issue), the one rule, skill conventions, the voice rules, and the four gates. Includes a light code of conduct.
 - New `.github/ISSUE_TEMPLATE/`: bug_report, new_subject_pack (paste-a-draft path for non-Git teachers), new_skill, and config.yml with helper links.
 - Voice swept all new files: zero em dashes, no banned words except the two intentional uses (a quoted "utilize" as a word a teacher would never say, and the banned-word list itself in CONTRIBUTING).
+- Expanded `skills/grading-assistant/SKILL.md`: added a "How it works, one student start to finish" worked example (two students, including the differently-worded catch) and a "Two ways to finish" section. Mode 1 (default) produces the spreadsheet only and never touches the LMS, scores labeled as estimates. Mode 2 (opt-in) enters grades into Canvas but requires the grade column be hidden first (Grade Posting Policy Manual / crossed-eye indicator confirmed), enter-while-hidden, review the distribution, then the teacher manually Posts. The agent stops at "entered but hidden"; releasing is the human action. Mirrored a short version into the grading-assistant README. The worked-example student answers are plain italic text, not blockquotes, so the cookbook does not render them as fake prompt boxes.
+- Regenerated the cookbook (`node build-cookbook.js`), now ~16 pages, since a SKILL.md prompt section changed. The Mode 1 prompt addendum is a real blockquote and now appears in the cookbook.
 
 Decision this pass: kept level 1 tool-agnostic (any AI tool) per Taylor's call, but did NOT bury Cowork. Cowork and computer control are framed as the top of the ladder and the real point of the toolkit, since plain copy-paste barely reduces the manual work. The two are reconciled: agnostic on-ramp, computer-control destination.
 

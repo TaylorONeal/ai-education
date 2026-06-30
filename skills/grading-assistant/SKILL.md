@@ -59,9 +59,7 @@ Here is a concrete run so you can see exactly what goes in and what comes back.
 
 Say the assignment is a short-answer marketing question worth 10 points, and your rubric is: names the metric and defines it (4), uses the actual numbers from the scenario (3), gives a recommendation grounded in that data (3).
 
-You paste one student's answer:
-
-> "The open rate went up a lot after they changed the subject line, so the new version is clearly better and they should keep doing that."
+You paste one student's answer. The student wrote: *"The open rate went up a lot after they changed the subject line, so the new version is clearly better and they should keep doing that."*
 
 What the AI hands back, as one spreadsheet row:
 
@@ -73,9 +71,7 @@ What the AI hands back, as one spreadsheet row:
 
 Notice three things. The score is an estimate with its reasons attached, not a verdict. The notes are written so you could read them aloud to the student. And the AI flagged the metric mismatch instead of silently scoring around it, because you told it to flag what it is unsure about rather than guess.
 
-Now a second student, where the skill earns its keep:
-
-> "When they sent the second email, way more of the people who opened it actually clicked through, so that version did a better job of getting the click once someone was already in the inbox."
+Now a second student, where the skill earns its keep. The student wrote: *"When they sent the second email, way more of the people who opened it actually clicked through, so that version did a better job of getting the click once someone was already in the inbox."*
 
 A naive match against an answer key that wants the words "click-to-open rate" docks this. The differently-worded pass instead flags it:
 
