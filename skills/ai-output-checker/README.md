@@ -8,7 +8,7 @@ The goal is not to catch and punish. A student who uses AI to clean up grammar, 
 
 ## Tier 1: structural artifacts (highest confidence)
 
-When a student copies an answer out of an AI chat window and pastes it into a quiz box or document editor, the paste carries markup the student never sees and would never type. This is the case you raised: several quiz answers arriving with pasted HTML artifacts. Generously, it was formatting cleanup. Maybe not. The artifact tells you the text came from an AI surface; it does not tell you the thinking did. Stack it with Tier 2 before you act.
+When a student copies an answer out of an AI chat window and pastes it into a quiz box or document editor, the paste carries markup the student never sees and would never type. The common version is several quiz answers arriving with pasted HTML artifacts. Generously, it was formatting cleanup. Maybe not. The artifact tells you the text came from an AI surface; it does not tell you the thinking did. Stack it with Tier 2 before you act.
 
 What the major tools tend to leave behind:
 
