@@ -17,6 +17,8 @@ This skill is the outside reviewer you cannot afford to hire. It reads your mate
 - The materials: readings, slide decks, assignment prompts, whatever students actually receive.
 - Prior versions of the course or its key assessments, if you have them. The comparison is where the most useful findings come from.
 
+You can paste or attach all of this, or skip the file-gathering entirely: if the agent is connected to Canvas or your LMS, point it at the course and have it pull the readings, slides, assignments, and prior versions itself. Wherever a prompt below says `[PASTE OR ATTACH ...]`, that becomes "read it from the course." See `../../guides/canvas-lms.md` for Canvas and `../../guides/other-lms.md` for other platforms. The prof-brain skill is the cleanest version of this: ingest everything once, then point this skill at the brain.
+
 ## The prompt
 
 > You are reviewing the materials for [COURSE]. Be a tough, specific reviewer, not a cheerleader.

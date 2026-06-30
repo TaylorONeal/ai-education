@@ -17,6 +17,8 @@ This skill pressure-tests an exam before anyone takes it: it estimates difficult
 - Your list of topics or learning objectives, with rough weight (how much class time each got).
 - Prior versions of the exam, if you have them. The more terms, the better the comparison.
 
+You do not have to dig any of this out by hand. You can paste it, or, if the agent is connected to Canvas or your LMS, point it at the course and have it pull the current exam and every prior version itself. Wherever a prompt below says `[PASTE EXAM]` or `[PASTE OR ATTACH PRIOR EXAMS]`, you can instead tell the agent to read them straight from the course. See `../../guides/canvas-lms.md` for Canvas and `../../guides/other-lms.md` for other platforms. Pulling years of past exams in one pass is covered in `../../guides/automation.md`.
+
 ## Part 1: Difficulty and coverage check
 
 > You are reviewing an exam for [COURSE] before students take it. Be a skeptical reviewer.

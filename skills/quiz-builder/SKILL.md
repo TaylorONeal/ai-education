@@ -16,6 +16,8 @@ Writing a good question bank is slow, and AI makes it fast in the wrong way. Ask
 - Difficulty targets and how many questions per objective.
 - Your import format. The default bank format below imports into Canvas and most LMSs.
 
+You can paste your objectives and existing questions, or have a connected agent read them from the source: point it at your materials in Canvas or your LMS, or at the prof-brain knowledge base, and let it pull the objectives and any prior question banks itself. Wherever a prompt below says `[PASTE, or read from the brain]`, that is the option to skip the copy-paste. See `../../guides/canvas-lms.md` for Canvas and `../../guides/other-lms.md` for other platforms.
+
 ## The bank format
 
 One row per answer option, so a four-option question is four rows sharing a question id. Columns, matching a honed real bank:
