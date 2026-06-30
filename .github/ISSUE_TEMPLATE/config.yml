@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Start here if you are new
+    url: https://github.com/TaylorONeal/ai-education/blob/main/GETTING-STARTED.md
+    about: The 10-minute first task, no setup. Read this before opening an issue.
+  - name: Privacy and ethics questions
+    url: https://github.com/TaylorONeal/ai-education/blob/main/PRINCIPLES.md
+    about: How to use this safely with real student data.
