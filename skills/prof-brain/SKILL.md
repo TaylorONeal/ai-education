@@ -11,13 +11,15 @@ Your course knowledge is scattered. The syllabus is a PDF, the readings are LMS 
 
 This skill ingests everything into one organized folder of Markdown notes with an index, a course brain you and your tools can read. It is the memory layer the rest of the toolkit draws on.
 
+Think of it as a tidy filing cabinet for one course, except an AI can read the whole cabinet at once. You build it by collecting the materials you already have into a set of plainly named folders, then letting the AI write a short, faithful summary of each item. You do not need to code, and you do not need to install anything special to begin. A folder on your computer and an AI chat tool are enough. If you can make a folder and drag a file into it, you can build the first version of this today. The "Getting your materials in" section below gives you four ways to fill it, from doing it by hand to letting a connected agent pull everything from Canvas for you.
+
 ## What you need
 
 - Pointers to your sources: the local folders, the Google Drive folders, the LMS reading-module pages (URLs), the syllabus, the slide decks, and any past exams or course docs.
 - A destination folder for the brain (a plain folder on disk is enough).
 - Optionally, a Notion workspace or an Obsidian vault if you want it synced there too.
 
-You do not have to track down every URL and file yourself. If the agent is connected to Canvas or your LMS, you can point it at the course and have it find the reading-module pages, assignments, and past exams on its own, instead of listing each source by hand. See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for walking every past term in one pass.
+You do not have to gather all of this by hand, and you do not have to do it all at once. The "Getting your materials in" section below lays out the easiest path for your setup, from dragging files into folders to letting a connected agent pull everything from your LMS.
 
 ## What it builds
 
@@ -49,6 +51,20 @@ tags: [e-commerce, funnel, metrics]
 The substance of the note in your own words. Link related notes with [[Open Rate]] and
 [[E-Commerce Assignment]] so the brain becomes a graph, not a pile.
 ```
+
+## Getting your materials in (pick the one that fits you)
+
+There are four ways to fill the brain, from most hands-on to most hands-off. Start with whatever you already have in a pile, use the path that matches your comfort and your tools, and add more later. They line up with the same levels the rest of the toolkit uses: do it yourself, or hand more of it to the AI.
+
+1. By hand: make the folders and drop files in. Create a folder called `brain` with the subfolders shown above (`syllabus`, `readings`, `assignments`, `exams`, `slides`, `glossary`). Then drag each file into the folder it belongs in: the syllabus into `syllabus`, last year's tests into `exams`, your slide decks into `slides`, each reading into `readings`. When the files are sorted, point an AI chat tool at the folder and run the prompt below, and it turns each file into a note. This path needs no special tools. If you can make folders and drag files, you can do it.
+
+2. Let a computer-control agent sort it for you. If you use Claude Cowork or another AI that can control your computer, you can skip the dragging. Point it at the messy folder where your course files already live and tell it: "Build a course brain. Put each file in the right folder (syllabus, readings, assignments, exams, slides), then summarize each one into a note." It does the sorting and the summarizing; you check the result.
+
+3. Connect Google Drive and let it pull. If your materials live in Google Drive, connect the Drive connector and tell the agent which folders to read. It pulls each file's text, sorts it, and writes the notes, keeping the Drive link on each note so you can always trace it back. Nothing to download or drag.
+
+4. Pull straight from Canvas or your LMS. If the agent is connected to your LMS, you do not have to find and download anything. Point it at the course and it reads the reading-module pages, assignments, and past exams where they live. See [`../../guides/canvas-lms.md`](../../guides/canvas-lms.md) for Canvas, [`../../guides/other-lms.md`](../../guides/other-lms.md) for other platforms, and [`../../guides/automation.md`](../../guides/automation.md) for walking every past term in one pass.
+
+You can mix these. Drag in the few files you have on your laptop, connect Drive for the rest, and let it pull the readings from Canvas. The brain ends up in the same shape no matter how the material got there, so there is no wrong order and no penalty for starting small.
 
 ## The prompt
 
