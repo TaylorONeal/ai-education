@@ -51,6 +51,8 @@ Instead of a vague "imagine some students," run a fixed cast of six personas. Ea
 
 This gives you a rough score distribution before the exam counts for anyone. A lopsided spread is your signal to rebalance.
 
+A note on framing the personas respectfully: they are teaching tools, not caricatures. The non-major persona exists to check accessibility, not to model a student who "should" fail. The enthusiast persona models uneven attention without a clinical label. Keep them that way if you adapt or extend the cast.
+
 ## The two levers that fix most spreads
 
 When the simulation comes back lopsided, two changes do most of the work:
@@ -60,7 +62,16 @@ When the simulation comes back lopsided, two changes do most of the work:
 
 ## Calibration targets
 
-Decide, before you look at the simulation, roughly where each archetype should land. A healthy set looks like: the Analytics Minor and the experienced intern reach the top band, the earnest major lands solidly mid, the capable non-major passes without cruising, the enthusiast lands middling on honest partial mastery, and the bare-minimum student does not pass on padding alone. If the simulation puts the floor student comfortably passing, the exam is too guessable. If the hardest worker cannot reach the top band, the ceiling is too low. Either is a reason to rebalance.
+Decide, before you look at the simulation, roughly where each archetype should land. A healthy set looks like: the Analytics Minor and the experienced intern reach the top band, the earnest major lands solidly mid, the capable non-major passes without cruising, the enthusiast lands middling on honest partial mastery, and the bare-minimum student does not pass on padding alone. Watch for these specific failure patterns:
+
+| Concern | What it looks like | What to do |
+|---|---|---|
+| Floor too low | Bare-minimum persona scores far below passing | Check whether a bank is genuinely inaccessible (bad framing, not content) |
+| Floor too high | Bare-minimum persona passes comfortably | The test is too guessable; add applied scenarios and a fakeable-only-if-you-know-it requirement |
+| Ceiling too low | The rigorous student cannot reach the top band | The hardest workers are not rewarded; check for unfair or ambiguous items |
+| Non-major cruising | The non-major persona scores high | The exam may be vocabulary-heavy without applied filtering |
+| Enthusiast outscores the earnest major | Spiky engagement beats balanced study | Decide whether that is what you want the exam to reward |
+| Essay spread too tight | Little separation between floor and ceiling on open response | The rubric needs sharper criteria |
 
 A spread of roughly 45 to 50 points from floor to ceiling on a 100-point exam is healthy discriminability. Much tighter and the exam is not separating effort.
 

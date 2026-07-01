@@ -50,7 +50,48 @@ Open the HTML file in any browser. It makes the fabrications obvious at a glance
 
 ## When the submission itself shows it was pasted from an AI
 
-Separate from whether the numbers are real is the question of where the text came from. When a student copies an answer out of an AI chat window and pastes it into a quiz box or document editor, the paste often carries structural fingerprints the student never sees: nested list markup and paragraph spacing that the editor would not produce on its own, leftover code-block or syntax-highlight styling, typographic quotes and dashes in a box where someone typing would use plain ones, and a heading hierarchy cleaner than hand-typed work. None of that is proof. A student may have pasted from an AI purely to clean up formatting, which is not a problem. The flag is narrower: pasted-in content plus unverified numbers or sources means the student did not check what the tool produced, and that is the thing worth a conversation. Treat the artifact as one signal, stack it with the content checks above, and never act on the artifact alone. The full, source-by-source detection guide (what each major AI tool leaves behind, ranked by confidence) is in this skill's README.
+Separate from whether the numbers are real is the question of where the text came from. None of what follows is proof by itself. A student may have pasted from an AI purely to clean up formatting, which is not a problem. The flag is narrower: pasted-in content plus unverified numbers or sources means the student did not check what the tool produced, and that is the thing worth a conversation. Stack signals from different tiers below; never act on one signal alone. The tiers are ordered by how much a single hit is worth.
+
+### Tier 1: structural artifacts (highest confidence)
+
+When a student copies an answer out of an AI chat window and pastes it into a quiz box or document editor, the paste carries markup the student never sees and would never type by hand. What the major tools tend to leave behind:
+
+- ChatGPT: a distinctive list and paragraph DOM that does not match what the editor produces when you type the same content by hand, leftover code-block or syntax-highlight classes with no reason to exist in a business answer, bold tags wrapped around key terms on first use, and remarkably uniform paragraph length.
+- Claude: markdown-native typography that survived the clipboard (real em dashes, curly quotes, en dashes in ranges where a student types hyphens), and an unusually clean heading hierarchy.
+- Gemini: bulleted output where a prose answer was asked for, and indentation patterns that match its export style rather than manual formatting.
+
+To look: pull the raw text or HTML of the submission from your LMS (most expose it through the API or a source view) and compare its structure to what the editor produces when you type. The markup trees look different.
+
+### Tier 2: content integrity (high confidence)
+
+This is the strongest signal, and it is what the prompt above is built around: data that cannot be true (a rate over 100%, a negative count, a total smaller than its parts), unverifiable precision (a suspiciously exact number that traces to nothing in the source), invented sources, and scenario confusion. See the prompt for the full check.
+
+### Tier 3: writing fingerprints (moderate confidence)
+
+Any one of these can just be a well-organized student. Several stacking up raises the signal.
+
+- ChatGPT: heavy transitional words ("furthermore," "moreover" three-plus times in a short answer), hedge-then-confidence sentences, textbook-style definitional openings, a restating summary paragraph at the end, and "overall" as a transition.
+- Claude: leading with the counterargument before the point, carefully calibrated confidence language ("the data suggests" vs "shows" vs "confirms"), unprompted numbered reasoning, and scope-narrowing parentheticals.
+- Gemini: a default to bullets, conversational framing ("let me break this down"), and near-identical sentence structures repeated across paragraphs.
+
+### Tier 4: behavioral signals (lowest confidence, needs context)
+
+Not visible in the text alone, and never a conclusion by itself: a sudden jump from C-level to A-level prose on one assignment, a vocabulary shift in a single submission, a detailed long answer submitted forty-five minutes after the assignment opened, uniform quality across every question when students normally vary their effort, or one answer dramatically better than the rest.
+
+### Quick reference
+
+| Signal | ChatGPT | Claude | Gemini |
+|---|---|---|---|
+| HTML artifacts in source | Strong | Moderate (typography) | Weak (export masks it) |
+| Hallucinated or impossible data | Common | Less common | Common |
+| Transition-word stacking | High | Low | Moderate |
+| Uniform paragraph length | Very | Moderate | Consistent |
+| Definitional opening | Common | Uncommon | Common |
+| Restating summary close | Almost always | Sometimes | Often |
+| Leads with the counterargument | Uncommon | Very common | Uncommon |
+| Bullet-point default | Sometimes | Rarely | Frequently |
+
+Pulling the raw markup for Tier 1 is platform-specific; see `../../guides/canvas-lms.md` for pulling a Canvas submission's raw HTML, and `../../guides/other-lms.md` for the other systems.
 
 ## What to check before you trust it
 

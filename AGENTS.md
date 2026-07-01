@@ -31,7 +31,7 @@ Reduce ingestion friction: if their LMS is connected, pull their materials direc
 | prof-brain | Ingesting all course materials into one organized knowledge base the other skills read from | `skills/prof-brain/` |
 | canvas-lms | Operating Canvas reliably from an agent: auth, styled content, grade entry, quiz edits | `skills/canvas-lms/` |
 
-Each skill folder has a `SKILL.md` (the prompt and short how-to, usable immediately) and a `README.md` (the in-depth method, examples, lessons learned). Some carry extra files (grading-assistant ships a spreadsheet template, quiz-builder ships domain packs, canvas-page-generator ships a brand-guidelines template).
+Each skill folder has a `SKILL.md` (the whole skill: the problem, what you need, the method, the prompt, worked examples, what to check, and the guardrail, complete and usable on its own) and a `README.md` (a short description: what the skill does, when to reach for it, and what else is in the folder, pointing back to `SKILL.md`). The README is not a second copy of the skill; if you find yourself restating the prompt, the checklist, or the guardrail there, cut it. Some folders carry extra files (grading-assistant ships a spreadsheet template, quiz-builder ships domain packs, canvas-page-generator ships a brand-guidelines template).
 
 ## Guides: the platform and automation specifics
 
@@ -74,7 +74,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 
 ## Adding or changing a skill
 
-1. Create `skills/<name>/SKILL.md` with the full section structure, and a `README.md` deep dive.
+1. Create `skills/<name>/SKILL.md` with the full section structure, complete on its own, and a short `README.md` that describes the skill and points back to it. Do not duplicate the prompt, the checklist, or the guardrail in the README.
 2. Keep it LMS-agnostic; put platform specifics in a guide and link to it.
 3. If it is a copy-paste teaching or authoring skill, add it to the `ORDER` array in `cookbook/build-cookbook.js`. Operational skills stay out of the cookbook.
 4. Regenerate the cookbook: `cd cookbook && npm install docx && node build-cookbook.js`.
@@ -85,7 +85,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 1. PII scan: no real name, course code, institution reference, or path in any skill, guide, the cookbook, or the article.
 2. Voice sweep: zero em dashes; none of the banned words except where a prompt deliberately lists them as words to cut.
 3. Cookbook integrity: prompts in the docx match the skills word for word (the docx is generated, not hand-edited).
-4. Structure: every skill has its sections, including the guardrail.
+4. Structure: every skill has its sections, including the guardrail, and its `README.md` stays a short description rather than a second copy of the skill.
 
 ## Continuity
 

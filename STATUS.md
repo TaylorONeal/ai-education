@@ -2,7 +2,27 @@
 
 Working directory: `~/Class/ai-education/` (this folder). This is the local repo that maps to https://github.com/TaylorONeal/ai-education (currently empty, not yet pushed).
 
-Last updated: 2026-06-30.
+Last updated: 2026-07-01.
+
+## Update (2026-07-01, seventh pass: fix the SKILL.md/README.md duplication)
+
+Taylor's call: the skill folders had drifted so that `SKILL.md` and `README.md` said almost the same thing twice, in different words, which read as padding rather than depth ("skill files that look like readme"). Fixed the convention itself, then applied it to all twelve skills.
+
+- New convention, recorded in `AGENTS.md` and `CONTRIBUTING.md`: `SKILL.md` is the whole skill, complete and self-sufficient (problem, what you need, method, prompt, worked examples, what to check, guardrail). `README.md` is a short description: what the skill does, when to reach for it, what else ships in the folder, and a pointer back to `SKILL.md`. The README no longer restates the prompt, the checklist, or the guardrail.
+- Went skill by skill: read both files, found the real (non-duplicate) content that had been stranded in the README instead of the skill, merged it into `SKILL.md`, then rewrote `README.md` to a short description. Nothing that was genuinely useful was dropped, only the restated-in-different-words duplication.
+  - participation-scoring: merged in the concrete bucket table, the name-matching defenses (parenthetical stripping, correction map, skip non-students), the chat-API rate-limit numbers, and a privacy note into the guardrail.
+  - grading-assistant: merged in the "red flags to encode" list, the both-directions bias-watch nuance, and a record-keeping line in the guardrail.
+  - ai-output-checker: merged in the full four-tier AI-detection guide (structural artifacts, content integrity, writing fingerprints, behavioral signals) and the per-tool quick-reference table, replacing a bare pointer to the README.
+  - class-content-analysis: merged in the worked example (the objective-4 gap, the 80%-overlap readings, the two-grade-level outlier).
+  - exam-rebalance: merged in the persona-framing-respectfully note and the calibration concern table (floor too low/high, ceiling too low, non-major cruising, and so on).
+  - exam-predictor: merged in the numeric predictive-weight scale (0.80-0.85 strong down to excluded entirely), the three behavioral signals (engagement, detail orientation, consistency), and calibrating against the exam-rebalance personas.
+  - announcement-writer: merged in the TA-introduction category, richer per-category detail, and the post-draft detail-gathering step.
+  - canvas-page-generator: merged in the full component library (header band, short-version box, section block, callouts, table, CTA button, model-answer block, resource list).
+  - quiz-builder, prof-brain, canvas-lms, start-here: smaller merges (a concrete discriminating-question example, per-source-type ingestion guidance, an agent-operational note), since these three were already closer to the target shape.
+- Regenerated the cookbook (`node build-cookbook.js`, ~17 pages now, up from ~16, since several prompt-adjacent sections grew). Verified by unzipping the docx and checking all nine cookbook skills and their prompts are present and unchanged in substance.
+- Ran the four gates: zero em dashes, no banned words outside the one prompt that deliberately lists them, no real name/course code/institution/path anywhere (checked specifically for the course codes and institution terms surfaced while scoping this pass, see below), every skill still has its full section structure including the guardrail, and every README is now a short description rather than a duplicate.
+
+A note on scope: before landing on the README-duplication framing, this pass also searched Taylor's connected Google Drive to see whether "real source material" (per the first pass's own account below) needed pulling in again. It located real, current course files (grading notes, rubrics, syllabi for two of Taylor's courses across several terms) that plainly match the domain packs and skills here, but Taylor redirected to the duplication fix before any of that material was opened or used. Nothing from Drive made it into this repo. If more real-world specificity is wanted later, that material is the lead to follow, with the same stripping discipline this repo already applies.
 
 ## Update (2026-06-30, sixth pass: teacher-first onboarding + OSS scaffold)
 

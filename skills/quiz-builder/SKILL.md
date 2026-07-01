@@ -7,7 +7,7 @@ description: Generate scenario-based quiz and exam question banks that discrimin
 
 ## The problem
 
-Writing a good question bank is slow, and AI makes it fast in the wrong way. Ask a model for "ten questions on this topic" and you get trivia: definitional recall with one obviously right answer and three throwaway distractors. That tests memory, not understanding, and it does not separate the student who gets it from the student who memorized a glossary. A good bank is scenario-based, has exactly one defensible answer, has distractors that are wrong for diagnosable reasons, is honestly difficulty-labeled, and imports cleanly into your LMS. This skill builds that.
+Writing a good question bank is slow, and AI makes it fast in the wrong way. Ask a model for "ten questions on this topic" and you get trivia: definitional recall with one obviously right answer and three throwaway distractors ("What is CPA") instead of a scenario that makes a student reason ("A campaign drove 340 conversions at $12 CPA on $2,050 spend..."). That tests memory, not understanding, and it does not separate the student who gets it from the student who memorized a glossary. A good bank is scenario-based, has exactly one defensible answer, has distractors that are wrong for diagnosable reasons, is honestly difficulty-labeled, and imports cleanly into your LMS. The real banks this skill is modeled on pose an A-level-versus-B-level analysis choice, or a "transform this weak statement" task, where the wrong options are the things students actually write. This skill builds that.
 
 ## What you need
 

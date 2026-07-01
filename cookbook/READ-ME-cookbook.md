@@ -1,6 +1,6 @@
 # Cookbook
 
-`AI-Teaching-Cookbook.docx` is the non-technical, copy-paste version of the seven skill prompts in the `../skills` folder. It is built for the teacher who just wants the prompts and does not want to install anything.
+`AI-Teaching-Cookbook.docx` is the non-technical, copy-paste version of the teaching and authoring skill prompts in the `../skills` folder (the `ORDER` array in `build-cookbook.js` lists which ones). It is built for the teacher who just wants the prompts and does not want to install anything.
 
 ## Single source of truth
 
