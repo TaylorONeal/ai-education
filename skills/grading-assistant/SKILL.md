@@ -27,6 +27,10 @@ The single biggest lever on grading consistency is naming, in your rubric, what 
 
 If your assignment can carry one explicit, hard-to-fake requirement, put it in the rubric, because it is often the cleanest line between one grade band and the next and the AI can check it directly. The general form: every answer must name and define the specific course term, source, or piece of evidence it relies on, so a vague paraphrase cannot pass for mastery. Tailor it to your field: name the metric and define it (analytics or quant), name the event or source and its significance (history), quote the passage and name the device (literature), name the mechanism or term and define it (science or nursing).
 
+Tell the model to dock or flag, not reward, a short list of red flags: intensifiers with no number behind them ("significantly," "dramatically"), "as discussed in class" without actually applying the concept, naming a metric that is not relevant to the question, and scenario confusion (answering about the wrong company or the wrong question type). Encoding these directly catches the fluent-but-empty answer that would otherwise drift up a band on style alone.
+
+This works on the text of a response and your rubric, so it is the same job whether the responses live in Canvas SpeedGrader, a Blackboard or Brightspace gradebook, a Moodle assignment, or a stack of documents. Getting scores back into your system afterward is the platform-specific part; see the finish modes below.
+
 ## The prompt
 
 > You are my grading assistant for [COURSE], assignment: [ASSIGNMENT NAME]. You do not assign final grades. You apply my rubric and flag anything I should look at again.
@@ -83,12 +87,12 @@ You read that flag, decide the student understood it, and award the conceptual c
 
 1. Read every "different wording" flag yourself. This is the highest-value output and the place the AI is most useful. Confirm the student actually shows the understanding before you award the points.
 2. Re-grade three responses fully by hand and compare to the AI's scores. If they diverge, your rubric is probably ambiguous. Tighten it, do not just trust the model.
-3. Watch who gets flagged. If second-language or non-standard-phrasing students cluster in the flags, that is the bias the skill is meant to catch. Good. Act on it.
+3. Watch who gets flagged. This cuts both ways: if second-language or non-standard-phrasing students cluster in the "different wording" flags, that is the bias the skill is meant to catch, and you should act on it. If instead they cluster in the low scores, look harder before you finalize; a careless pass can encode the same bias it is supposed to fix.
 4. Check the scenario-confusion calls against the actual prompt. Sometimes a student references something that really was in their version of the assignment and the AI did not have it. Verify before you dock points.
 
 ## The guardrail
 
-The AI proposes, you grade. It never posts a grade. Its job is to make you a more consistent and more generous-where-deserved grader, not to grade for you. If you would not be able to explain a score to the student in your own words, do not enter it.
+The AI proposes, you grade. It never posts a grade. Its job is to make you a more consistent and more generous-where-deserved grader, not to grade for you. If you would not be able to explain a score to the student in your own words, do not enter it. Keep what the AI produced and what you changed; "here is the rubric, here is the AI pass, here is my adjustment and why" is a strong position if a grade is ever challenged.
 
 ## Two ways to finish: a spreadsheet, or grades in Canvas
 
