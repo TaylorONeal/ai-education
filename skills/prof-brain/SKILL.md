@@ -60,6 +60,17 @@ The substance of the note in your own words. Link related notes with [[Open Rate
 >
 > Then write INDEX.md (one line per note: title, type, and a one-line hook) and OVERVIEW.md (the course in one page). Flag any source you could not read cleanly so I can check it.
 
+## Ingesting each kind of source
+
+Each source type wants a slightly different treatment:
+
+- Local folders: read each document, summarize to a note, keep the file path in `source`. PDFs and Word docs get their text extracted; flag any that came through garbled.
+- Google Drive: pull each file's text through the Drive connector, same treatment. Keep the Drive link in `source` so the note traces back.
+- LMS reading-module pages: these are web pages, so render them through a browser surface (an AI browser extension or an agentic browser) rather than a raw fetch, because a reading page is usually client-rendered and a raw fetch returns a navigation shell instead of the content. See `../../guides/canvas-lms.md` and `../../guides/automation.md`.
+- Syllabus: split it into atomic policy notes (grading, late work, attendance, schedule) rather than one giant note, so each policy can be linked and updated on its own.
+- Slides: summarize each deck to text, one note per deck or per topic, since slide bullets are not self-explanatory on their own.
+- Past exams: normalize into structured notes (one per exam, or one per question for finer granularity), which is exactly the format the exam-rebalance and exam-predictor skills want to read.
+
 ## The memory philosophy
 
 This is a file-based brain on purpose, not a black-box index. The design rules keep it useful as it grows:
@@ -73,13 +84,13 @@ This is a file-based brain on purpose, not a black-box index. The design rules k
 ## Syncing to Notion or Obsidian (optional)
 
 - Obsidian: an Obsidian vault is just a folder of Markdown with `[[wikilinks]]`, which is exactly what this builds. Point Obsidian at the brain folder and it works natively, graph view and all. No conversion needed. Agent instruction: write the notes with wikilinks and tell the user to open the folder as a vault.
-- Notion: push each note as a page, preserving the folder tree as a page hierarchy, and turn INDEX.md into a database with the frontmatter fields as properties (type, term, tags). Agent instruction: use the Notion API or MCP connector to create a parent page per folder, a child page per note, and a database for the index; keep the on-disk Markdown as the source of truth and treat Notion as a published view, so you can always rebuild it.
+- Notion: push each note as a page, preserving the folder tree as a page hierarchy, and turn INDEX.md into a database with the frontmatter fields as properties (type, term, tags). Agent instruction: use the Notion API or MCP connector to create a parent page per folder, a child page per note, and a database for the index; keep the on-disk Markdown as the source of truth and treat Notion as a published view, so you can always rebuild it. On refresh, update the pages whose source note changed rather than duplicating them, matching on title or a stored note id.
 
 ## What to check before you trust it
 
 1. Verify extraction fidelity on a few notes, especially LMS pages and PDFs. A reading page that rendered as a navigation menu, or a PDF that came through garbled, makes a confidently wrong note. Check the flagged ones first.
 2. De-duplicate. If the same reading exists in two sources, you want one note, not two that will drift.
-3. Keep it current. Re-ingest a source when it changes. Treat the brain as living; an outdated policy note is a liability.
+3. Keep it current. Re-ingest a source when it changes, prune notes whose source is gone, and merge duplicates the moment you spot them. Treat the brain as living; an outdated policy note is a liability.
 
 ## The guardrail
 

@@ -22,7 +22,7 @@ AI does the draft. You make the call. Nothing reaches a student without you read
 
 ## The prompt
 
-A teacher can paste this into any AI tool. An agent with the repo already in context can follow the same steps directly.
+A teacher can paste this into any AI tool. An agent with the repo already in context does not need to paste it; follow the same steps directly. Read `../../AGENTS.md` first for the skill index and conventions, then run the orient, ask, ingest, route, and run-one-example flow yourself.
 
 > You are my guide to the AI Teaching Toolkit. Walk me through getting started. Ask me one question at a time and wait for my answer before the next. Keep it plain, no jargon, and never dump a list of questions on me at once.
 >
@@ -67,6 +67,10 @@ Never block the first win on a full setup. A teacher who gets one real result wi
 | "Everything is scattered" | prof-brain first, then re-ask |
 
 Pick one. Resist the urge to show them the whole table.
+
+## What success looks like
+
+The session ends with: the teacher knows the one rule, their biggest time-sink named, one skill run on one real example of theirs, and a clear single next step. Not a fully configured system, a first win and a reason to come back.
 
 ## What to check before you trust it
 

@@ -56,7 +56,7 @@ Every skill is built around that line and ends with a guardrail enforcing it. Th
 
 ## What's inside
 
-Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (the prompt and a short how-to) and a `README.md` (the deep dive, with examples and the mistakes to avoid).
+Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (the whole skill: the prompt, the method, worked examples, and the guardrail) and a `README.md` (a short description of what it does and what else is in the folder).
 
 | Skill | What it does for you |
 |---|---|

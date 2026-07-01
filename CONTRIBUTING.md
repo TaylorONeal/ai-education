@@ -27,7 +27,7 @@ Open an [issue](https://github.com/TaylorONeal/ai-education/issues). There are t
 
 If you are comfortable with the repo structure, the full conventions live in [`AGENTS.md`](AGENTS.md). The essentials:
 
-1. Each skill is a folder under `skills/<name>/` with a `SKILL.md` (the prompt and short how-to) and a `README.md` (the deep dive).
+1. Each skill is a folder under `skills/<name>/` with a `SKILL.md` (the complete skill: problem, what you need, the prompt, what to check, the guardrail) and a `README.md` (a short description of what it does and what's in the folder, not a second copy of the skill).
 2. Keep skills platform-neutral. Put platform specifics in a [guide](guides/) and link to it.
 3. Every teaching skill keeps its section structure: the problem, what you need, the prompt, what to check, the guardrail, the automated version, and automate even better.
 4. If it is a copy-paste teaching skill, add it to the `ORDER` array in [`cookbook/build-cookbook.js`](cookbook/build-cookbook.js) so it appears in the cookbook. Operational skills (canvas-lms, prof-brain) stay out of the cookbook.
@@ -48,7 +48,7 @@ Run these before opening a pull request:
 1. PII scan: no real name, course code, institution reference, or file path anywhere in a skill, guide, the cookbook, or an article.
 2. Voice sweep: zero em dashes, none of the banned words except where a prompt deliberately lists them as words to cut.
 3. Cookbook integrity: if you changed a prompt, you regenerated the cookbook so the `.docx` matches the skills word for word.
-4. Structure: every skill still has its sections, including the guardrail.
+4. Structure: every skill still has its sections, including the guardrail, and its `README.md` is still a short description rather than a duplicate of the skill.
 
 ## Code of conduct
 

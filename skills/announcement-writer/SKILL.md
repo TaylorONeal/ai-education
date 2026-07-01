@@ -29,13 +29,16 @@ Save the style guide it produces. The point is that it captures the specifics th
 
 Announcements fall into a handful of categories, and each has a shape. Tell the model which one you are writing so it uses the right structure:
 
-- Welcome: warm opening, what the course is and who it is for, an honest note that it takes effort but is doable, the first-week logistics, where to find help.
-- Goodbye: celebrate the finish, reflect on how far they came, name what they are taking with them, then the admin and staying-in-touch details.
-- Exam or midterm: the date and time with the time zone, what it covers and the format, how to take it, study guidance, and a note that calms nerves without pretending it is easy.
+- Welcome: warm opening, what the course is and who it is for (not just majors), an honest note that it takes effort but is doable, the first-week logistics, where to find help, an intro video if you have one.
+- Goodbye: celebrate the finish, reflect on growth from student work to real work, name what they are taking with them and where it shows up in interviews, then the admin and staying-in-touch details.
+- Exam or midterm: the date and time with the time zone, what it covers and the format, how to take it, study guidance pointed at specific topics, and a note that calms nerves without pretending it is easy. A little humor here earns its place.
 - Weekly update or assignment: connect the current work to why it matters, the specific things to focus on or common mistakes, what is coming up, and which channel to use for questions.
-- Extra credit: a hook that makes it sound interesting, the connection to the course, the requirements and the due date.
-- Topic or content week: why this topic matters now, the readings and videos, framed so it feels worth their time.
-- Schedule or logistics update: short, a quick check-in, the next week or two laid out, and where to get help.
+- Extra credit: a hook that makes it sound genuinely interesting, the connection to the course, the requirements and the due date. Keep it short.
+- Topic or content week: why this topic matters now, framed for different roles or interests, the readings and videos, framed so it feels worth their time.
+- Schedule or logistics update: short, a quick check-in, the next week or two laid out as a small table, and where to get help.
+- TA introduction: credibility, availability windows, contact method, one piece of real advice, a personal touch.
+
+After the first draft, have the model ask you for what it cannot know rather than guess it: dates and times, point values, links (assignment pages, Zoom, sign-up forms), the TA's name and hours, any tool keys students need, and any change from the syllabus. Never let it guess these; dates, point values, and links are exactly the things an AI gets plausibly wrong.
 
 Then:
 
@@ -54,6 +57,8 @@ Run every draft through this before posting:
 > Edit this so no trace of AI writing remains. Remove em dashes and replace with commas or periods. Cut inflated words (pivotal, crucial, leverage, foster, delve, robust, seamless). Break up any group-of-three patterns. Stop any synonym cycling where the same idea gets renamed each sentence. Remove empty hype. Keep my voice and all the facts. Return only the cleaned version.
 
 What lands in front of you should already read like you wrote it.
+
+The draft is plain text and works wherever you announce: your LMS announcements tool, email, or a class chat. Posting it automatically through a specific platform is covered in the guides: `../../guides/canvas-lms.md` for the Canvas announcement and page tools, `../../guides/chat-and-discussion.md` for Slack, Discord, Teams, and similar. The base workflow needs none of that; it is copy, clean, paste, post.
 
 ## What to check before you post
 
