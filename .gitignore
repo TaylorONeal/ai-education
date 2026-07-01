@@ -3,3 +3,6 @@ package-lock.json
 package.json
 .DS_Store
 *.log
+
+# Build artifacts: skill bundles from scripts/build-bundles.sh
+dist/
