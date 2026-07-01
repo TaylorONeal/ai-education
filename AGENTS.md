@@ -8,10 +8,17 @@ What this toolkit is for: the value is the skills, the automations, and the hard
 
 AI does the draft. You make the call. Nothing reaches a student without a human reading it first. Every skill ends with a guardrail enforcing this. If a change you are about to make would let an AI grade, sanction, or message a student without a human in the loop, do not make it.
 
+## Onboarding a new user (do this first)
+
+When someone points you at this repo or installs these skills and is not sure where to begin, run the `start-here` skill before anything else. It is the front door: it orients the teacher in two sentences, asks a few questions one at a time (what they teach, their biggest time-sink, their LMS, whether any tools are connected), offers to ingest their materials with prof-brain so the other skills are grounded, and then runs one skill on one real example for a fast win. Do not dump the whole skill list on a new user; route them to the single skill that fixes their stated pain, and leave the rest for later. The principle is one ingest, one skill, one result.
+
+Reduce ingestion friction: if their LMS is connected, pull their materials directly rather than asking them to gather files; if not, ask for the smallest useful input (a syllabus and one assignment) and show value before asking for more; if they are copy-paste only, skip ingestion and just run the first skill on a pasted example.
+
 ## Skill index: what to reach for
 
 | Skill | Use it when | Folder |
 |---|---|---|
+| start-here | A new user needs onboarding: orient, ask, ingest, route to a first win | `skills/start-here/` |
 | participation-scoring | Grading participation fairly from real activity across channels, DMs, meetings | `skills/participation-scoring/` |
 | grading-assistant | Applying a rubric consistently and catching correct-but-differently-worded answers; producing the grading spreadsheet | `skills/grading-assistant/` |
 | ai-output-checker | Auditing AI-assisted student work for fabricated or impossible numbers, invented sources, and pasted-AI artifacts | `skills/ai-output-checker/` |
@@ -48,6 +55,15 @@ Use whatever automation surface the user has. The pattern is the same regardless
 ## prof-brain is the context layer
 
 When grounding any skill, prefer reading from the prof-brain knowledge base over asking the user to paste materials again. class-content-analysis, exam-rebalance, exam-predictor, quiz-builder, and announcement-writer all sharpen when pointed at the brain. Keep student PII out of the brain.
+
+## Top-level docs (for humans, and for you)
+
+- `README.md`: the teacher-facing funnel and the three-level ladder (plain chat, chat plus skills, computer control plus skills).
+- `INSTALL.md`: the three install paths (copy-paste, Cowork `.skill` bundles, Claude Code script) and how to point an agent at the repo. `scripts/install.sh` copies skills into `~/.claude/skills/`; `scripts/build-bundles.sh` packages each skill as a `.skill` for Cowork.
+- `GETTING-STARTED.md`: the no-setup first task, plus a level-1-vs-level-3 comparison.
+- `GLOSSARY.md` and `FAQ.md`: plain definitions and the common teacher questions.
+- `CONTRIBUTING.md`: the contributor path, leading with adding a subject pack.
+- `PRINCIPLES.md`: the ethics. `STATUS.md`: the running continuity log.
 
 ## Conventions you must follow
 

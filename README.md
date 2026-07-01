@@ -104,6 +104,8 @@ This is how you reach the top of the ladder. These skills are written as Claude 
 
 Claude Cowork on the desktop is the clearest example of level 3. It can open your files, control your browser, and run these skills, so it does the gathering and the clicking and hands you a draft to approve. The same pattern works with an AI browser extension, an agentic browser, or any computer-use agent. The skills stay the same; the agent just does more of the manual part.
 
+To install the skills, see [`INSTALL.md`](INSTALL.md): one click per skill on Cowork using `.skill` bundles, or one command on Claude Code (`./scripts/install.sh`). Once they are in, just say "help me get started" and the **start-here** skill onboards you: it asks a few questions, offers to pull in your own course materials so the other skills are grounded, and runs your first task end to end.
+
 [`AGENTS.md`](AGENTS.md) is the index an agent reads first: every skill, when to use it, the guides, and the conventions. [`guides/automation.md`](guides/automation.md) explains the computer-control level in detail. None of this is required for the copy-paste path, so there is no wrong place to start.
 
 ## Questions
