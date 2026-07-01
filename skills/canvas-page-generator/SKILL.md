@@ -21,9 +21,18 @@ This skill lets you write the page in plain text and get back a finished, styled
 Decide your look and reuse it. The version that survives a clunky LMS editor follows a few hard rules, learned the hard way:
 
 - One outer container, everything inline. Output a single wrapper element and put every style inline. Many editors strip class-based and external CSS on paste, so class selectors and stylesheets will not survive. Inline styles do.
-- Build from a small set of repeatable blocks: a header band with the page title, a short summary box at the very top so students get the point in five seconds, and content sections that each have a small label badge, a heading in an accent color, and a colored left border to break up the wall of text.
-- Pick three accent colors and cycle them across sections so the page has rhythm. A neutral, accessible default that is not tied to any institution: a deep slate `#1f2d3d` background, near-white `#ffffff` body text, and three accents, primary `#2563eb`, secondary `#0f9d8f`, highlight `#f4b400`. Swap in your own brand colors if you have them. Never use gray for body text on a dark background.
-- Readable body text at 16px, line height around 1.7, a web-safe font stack with a system fallback, generous padding.
+- Build from a small set of repeatable blocks, so every page looks like it belongs to the same course:
+  - Header band: the page title, with an optional subtitle and a metadata line (due date, points, module).
+  - Short-version box: a summary at the very top so a student gets the point in five seconds.
+  - Section block: the core unit. A small uppercase label badge, a heading in an accent color, a colored left border, body text.
+  - Tip and warning callouts: a left border and a subtle tinted background, labeled in text (TIP, WARNING, COMMON MISTAKE) so meaning never rides on color alone.
+  - Table: a bordered container with a header row, horizontally scrollable so it survives narrow screens.
+  - Call-to-action button: a link styled as a pill button, at least a 44-pixel touch target.
+  - Image: responsive, bordered, with real alt text.
+  - Model-answer block and common-mistakes block: for assignment pages, to show the level of work expected and the pitfalls that cost points.
+  - Resource list: a labeled set of links in a section of its own.
+- Pick three accent colors and cycle them across sections (primary, secondary, highlight, then repeat) so the page has rhythm. A neutral, accessible default that is not tied to any institution: a deep slate `#1f2d3d` background, near-white `#ffffff` body text, and three accents, primary `#2563eb`, secondary `#0f9d8f`, highlight `#f4b400`. Swap in your own brand colors if you have them. Never use gray for body text on a dark background.
+- Readable body text at 16px, line height around 1.7, a web-safe font stack with a system fallback, generous padding. Accessibility is not optional: semantic heading order (one page title, a heading per section), real alt text on images and a title on any embedded video, links visibly distinct with enough contrast, and touch targets large enough to tap.
 
 Save your filled-in colors. Every future page becomes: paste plain text, run the saved prompt, preview, publish.
 

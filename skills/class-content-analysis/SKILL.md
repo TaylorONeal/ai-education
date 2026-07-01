@@ -54,6 +54,10 @@ If you have past versions, the drift is the story:
 
 If you have performance history (which topics students consistently struggle with across terms), feed that in too and ask the model to flag any category that is both hard for students and under-supported in the materials.
 
+## A worked example
+
+Feed in eight readings, three slide decks, your assignment prompts, and six objectives. The audit reports that objective 4 ("interpret a conversion funnel") appears in two readings and a lecture but in no assignment, that readings 3 and 6 both teach the same framework with 80% overlap, and that reading 5 sits two grade levels above the rest. Your prioritized fix: build or repurpose one assignment to assess objective 4, cut or merge one of the overlapping readings, and either scaffold or replace reading 5. Three concrete moves, none of which you would have scheduled time to find on your own.
+
 ## What to check before you trust it
 
 1. Verify each "gap" against your full materials. The AI only sees what you paste. A gap may just mean you forgot to include a file. Confirm before you rewrite a unit.
