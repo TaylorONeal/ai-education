@@ -30,6 +30,41 @@ That is the whole pattern. Every skill in here works the same way: copy a prompt
 
 New to any of the words here (skill, prompt, connector, agent)? The [`GLOSSARY.md`](GLOSSARY.md) explains each in one plain sentence.
 
+## What to do first
+
+Use the toolkit in this order when you are building or refreshing a course. Start by organizing the course, then diagnose it, then create or tune the pieces students will see.
+
+```mermaid
+flowchart TD
+    A[Start here
+New to the toolkit?] --> B[prof-brain
+Organize syllabus, files, pages, exams, rubrics, and prior terms]
+    B --> C[class-content-analysis
+Find gaps, overlap, drift, reading-level issues, and alignment problems]
+    C --> D{What do you need next?}
+    D --> E[canvas-page-generator
+Turn content into clean course pages]
+    D --> F[quiz-builder
+Create scenario-based question banks]
+    D --> G[exam-rebalance
+Check coverage, difficulty, and student personas before the exam]
+    G --> H[exam-predictor
+Spot risk before the next exam from graded coursework]
+    E --> I[Human review
+Read, edit, approve, then publish]
+    F --> I
+    H --> I
+```
+
+Quick version:
+
+1. **If you are new, run [start-here](skills/start-here/)** so the agent asks only the few questions needed and routes you to one useful first task.
+2. **Build the course brain with [prof-brain](skills/prof-brain/)** so the rest of the skills work from your real syllabus, pages, files, rubrics, exams, and prior terms.
+3. **Run [class-content-analysis](skills/class-content-analysis/)** to find what is missing, duplicated, misaligned, too hard, too easy, or drifting from the outcomes.
+4. **Create or improve student-facing materials** with [canvas-page-generator](skills/canvas-page-generator/) for pages and [quiz-builder](skills/quiz-builder/) for question banks.
+5. **Tune assessments before students take them** with [exam-rebalance](skills/exam-rebalance/), then use [exam-predictor](skills/exam-predictor/) when graded coursework exists and you want an early warning list to review.
+6. **Stop at the human decision point.** The AI drafts, flags, organizes, and predicts. You read, decide, and publish.
+
 ## The three levels: from AI that gives you words to AI that does the work
 
 This is the part that matters most, so read it before you decide this is "just prompts."
