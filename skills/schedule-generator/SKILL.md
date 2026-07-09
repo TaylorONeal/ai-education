@@ -7,51 +7,57 @@ description: Create a detailed course schedule table or spreadsheet from a sylla
 
 ## The problem
 
-The syllabus may say what the course covers, but the actual teaching plan lives in a messy mix of dates, topics, readings, assignment launches, due dates, quizzes, exams, holidays, and review days. If that schedule is wrong, everything downstream breaks: Canvas modules, announcements, gradebook dates, and student expectations.
+Create a week-by-week course schedule from term dates, meeting pattern, topics, readings, and assessments.
 
-This skill turns the course plan into a detailed spreadsheet-style schedule that a human can review, revise, and then use to build the LMS.
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
 ## What you need
 
-- Current or upcoming semester dates: first class, last class, meeting days, holidays, no-class dates, exam window, and any fixed deadlines.
-- Course topics and subtopics, preferably from prof-brain or an approved syllabus.
-- Readings, assignments, quizzes, exams, projects, and other deliverables.
-- Pacing rules: review days, buffer days, project workdays, lab days, or limits on how much can be assigned at once.
+- Required: Term dates, no-class dates, meeting pattern, topics, materials, assessments, pacing rules.
+- Prefer confirmed course context from `skills/prof-brain/` before asking the teacher to paste materials again.
+- If a connector or LMS is available, pull the smallest useful source set first and summarize it for confirmation.
+- If nothing is connected, ask for one small useful sample instead of the whole course.
 
-If current or upcoming semester dates are already in memory or prof-brain, use them and cite the source in the notes column. If not, ask the user for dates before generating the table. Do not invent a semester calendar.
+## Agent workflow
 
-## The prompt
+1. State the source set you will use and what is missing.
+2. Ask for dates if they are missing.
+3. Check every due date against when the concept is taught.
+4. Include source notes so changes are traceable.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-> Create a detailed schedule for [COURSE] for [TERM]. Use prof-brain or the approved syllabus if available. If the current or upcoming semester dates are missing, ask me for the first class date, last class date, meeting pattern, holidays, no-class dates, and exam window before drafting.
+## Output
+
+Spreadsheet-ready schedule table plus conflict report.
+
+## Prompt to run
+
+> You are running the Schedule Generator skill for [COURSE]. Use only the materials I provide or the connected sources I confirm.
 >
-> Course memory or syllabus: [PASTE OR ATTACH, OR READ FROM PROF-BRAIN]
-> Meeting pattern: [DAYS/TIMES]
-> Term dates and no-class dates: [DATES, OR ASK]
-> Major topics and subtopics: [TOPICS]
-> Readings and materials: [READINGS]
-> Assignments, quizzes, exams, projects: [ASSESSMENTS]
-> Pacing preferences: [PREFERENCES]
+> Task: Create a week-by-week course schedule from term dates, meeting pattern, topics, readings, and assessments.
 >
-> Output a spreadsheet-ready Markdown table with these columns: Week, Class Date, Unit, Topic, Subtopics, In-Class Activity, Reading or Prep Due, Assignment Released, Assignment Due, Quiz or Exam, Learning Objective, Notes, Source.
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
-> After the table, give me a conflict report: overloaded weeks, missing readings, objectives with no activity or assessment, assignments due before they are taught, dates that need confirmation, and recommended fixes.
+> Produce: Spreadsheet-ready schedule table plus conflict report.
+>
+> Requirements: cite or name the source for important claims, mark missing evidence, put uncertain or student-impacting items in a review queue, and end with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## What to check before you trust it
+## What to check before trusting it
 
-1. Dates. Verify every meeting date against the official calendar and your actual meeting pattern.
-2. Workload. Look for weeks with too many readings, deliverables, or exams.
-3. Sequence. Confirm students practice a skill before an assignment or quiz asks them to use it.
-4. Alignment. Every learning objective should appear in topics, activities, and assessment.
-5. LMS fit. Check that releases and due dates match how you plan to build modules, pages, and gradebook columns.
+- The output uses only supplied or confirmed sources.
+- Dates, links, IDs, calculations, point totals, and policy language are verified.
+- Student-impacting items are clearly separated for human review.
+- The artifact is useful as a draft but does not pretend to be the final decision.
 
 ## The guardrail
 
-The schedule is a planning draft. The AI must not publish dates, create LMS modules, or change due dates without human approval. The instructor verifies the calendar and workload before students see it.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
 
 ## Automated version
 
-Connected to prof-brain, the syllabus, and the LMS, the agent can read the current course structure, pull or ask for the upcoming term dates, draft the schedule table, export it as CSV, and flag conflicts. It stops for human review before any LMS changes.
+A connected agent may pull evidence from the LMS, Drive, local files, calendar, chat tools, or prof-brain, then build the same draft artifact. It must summarize what it found and wait for confirmation before writing back to any system.
 
 ## Automate even better
 
-After approval, an agentic browser can use the reviewed schedule to build Canvas modules, pages, assignment shells, quiz placeholders, and announcements. Keep the CSV as the source of truth, and require a final human review before publishing modules or releasing dates.
+For repeated use, store source pulls as durable CSV or Markdown files, refresh prof-brain, and reuse the same reviewed patterns across terms. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.
