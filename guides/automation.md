@@ -37,13 +37,14 @@ Goal: understand how your midterm has drifted over five years.
 - Store: write `past-exams.csv`.
 - Analyze: feed the CSV to the exam-rebalance skill's comparison step, or just ask for the trend: average difficulty by term, topic weight by term, repeated questions across versions, dropped topics. Five years of exams becomes one chart and a short memo.
 
-The same shape works for a full gradebook history (for exam-predictor), every discussion-forum post across a term (for participation-scoring), or every reading and assignment across terms (for class-content-analysis).
+The same shape works for a full gradebook history (for exam-predictor), every discussion-forum post across a term (for participation-scoring), or every reading and assignment across terms (for class-content-analysis and prof-brain).
 
 ## What "pull everything" means per skill
 
 - exam-rebalance: every past version of the exam, into one CSV, for real cross-year difficulty and coverage drift.
 - exam-predictor: the full gradebook and assignment history, unified, so the model trains on every graded signal you have.
 - class-content-analysis: every reading, slide deck, and assignment across terms, so the drift analysis is real and not from memory.
+- prof-brain: every accessible related course shell, organized first into an optional source inbox by term and type, then converted into Markdown notes with an intake log.
 - participation-scoring: the complete post and message history across every channel for the window, assembled once.
 - grading-assistant: the entire submission stack pulled into one place for a first pass.
 - ai-output-checker: every submission's raw HTML, for artifact detection at scale.
