@@ -4,6 +4,14 @@ Working directory: `~/Class/ai-education/` (this folder). This is the local repo
 
 Last updated: 2026-06-30.
 
+## Update (2026-07-09, seventh pass: non-destructive install-worthiness scaffold)
+
+Reverted the overly broad runbook rewrite and restored the detailed skill content. Added a lighter scaffold that preserves the existing hard-won detail: `skills/_template/` for new skills, `skills/_shared/` for reusable review, PII, LMS handoff, artifact, and TA workflow patterns, and a small set of synthetic expected-output examples for grading-assistant, participation-scoring, quiz-builder, and prof-brain.
+
+Added `scripts/audit-content.sh` to check the existing repo conventions without forcing every skill into a flattened template: no em dashes, frontmatter descriptions, guardrails, teaching-skill section structure, cookbook membership, operational-skill exclusion from the cookbook, and README presence. Updated AGENTS, CONTRIBUTING, and README to state the file roles and the quality bar.
+
+Decision this pass: keep the original detailed skills as the source of value. Add scaffolding and checks around them instead of replacing their voice and task knowledge with generic sections.
+
 ## Update (2026-06-30, sixth pass: teacher-first onboarding + OSS scaffold)
 
 Reframed the front door for medium-low technical teachers, added the open-source scaffolding, and expanded the grading-assistant skill with a worked example and two explicit finish modes.
