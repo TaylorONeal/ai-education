@@ -6,6 +6,12 @@ Working directory: `~/Class/ai-education/` (this folder). This is the local repo
 - Added syllabus-creator and schedule-generator as new teaching skills. prof-brain now includes syllabus analysis as part of the course brain, and class-content-analysis, exam-rebalance, and quiz-builder now include proactive post-analysis fix modes that offer concrete next actions instead of stopping at diagnosis. Updated the README, AGENTS index, guides index, cookbook order, and audit script so the new skills are first-class copy-paste skills.
 Last updated: 2026-07-09.
 
+## Update (2026-07-09, PR #3 review)
+
+Reviewed draft PR #3, `Fix SKILL.md/README.md duplication across all skills`. Its original concern was valid, but later work already chose the opposite fix: keep detailed README human field guides and preserve the task knowledge, while adding `_template/`, `_shared/`, examples, and `scripts/audit-content.sh` so the skills stay organized without being flattened. The PR is now stale against the current file-role convention and should be closed rather than merged.
+
+Clarified the contributor checklist so it matches the current convention: `SKILL.md` is the installed-agent runbook and `README.md` is the human field guide, with structure checks guarding against prompt-copy duplication.
+
 ## Update (2026-07-09, README first-step visual)
 
 Added a README flowchart that shows the recommended first path through the toolkit: start-here, prof-brain, class-content-analysis, then the creation and assessment skills. The quick version under the visual names the same sequence and repeats the human review stop point.
