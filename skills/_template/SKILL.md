@@ -1,38 +1,46 @@
 ---
 name: skill-name
-description: Describe when an agent should use this skill, what artifact it creates, and the human review point.
+description: Describe when an agent should use this skill, the artifact it creates, and the required human review point.
 ---
 
 # Skill Name
 
 ## The problem
 
-Name the teaching problem in concrete terms. Say what goes wrong when a teacher or agent does this from scratch.
+Name the teaching or course-operations situation in one concrete paragraph. Keep the skill file as the agent runbook, not the human field guide.
+
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
 ## What you need
 
-- The smallest useful input for copy-paste use.
-- The connected sources an agent should check before asking the teacher to gather files.
-- Any policy, rubric, accessibility, privacy, or LMS constraint that changes the output.
+- Required: the smallest useful input for copy-paste use.
+- Preferred: confirmed course context from prof-brain or connected tools.
+- Constraints: policy, rubric, accessibility, privacy, LMS, or calendar rules that change the output.
 
-## Agent pre-work before asking the teacher
+## Agent workflow
 
 1. Check whether prof-brain already has the relevant course context.
 2. Check whether the LMS, local files, Drive, calendar, or chat source can provide the needed evidence.
 3. Summarize what you found and ask the teacher to confirm the source set.
 4. If nothing is connected, ask for one small useful sample rather than the whole course.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## The prompt
+## Output
 
-> You are helping me with [TASK] for [COURSE]. Use only the information I provide or the sources I confirm.
+Name the concrete artifact: table, report, draft, HTML page, spreadsheet, CSV, or checklist.
+
+## Prompt to run
+
+> You are running the [SKILL NAME] skill for [COURSE]. Use only the information I provide or the sources I confirm.
 >
-> Inputs: [PASTE INPUTS, or read from confirmed connected sources].
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
 > Produce: [EXPECTED ARTIFACT].
 >
-> Put uncertain, missing-evidence, or student-impacting items in a review queue. End with what I must check before trusting the output. Stop before anything reaches students, a gradebook, or an official record.
+> Put uncertain, missing-evidence, or student-impacting items in a review queue. End with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## What to check before you trust it
+## What to check before trusting it
 
 - Source fidelity: every important claim traces to supplied or confirmed material.
 - Missing context: the output states what it could not see.
@@ -41,12 +49,12 @@ Name the teaching problem in concrete terms. Say what goes wrong when a teacher 
 
 ## The guardrail
 
-AI drafts. The human decides. Nothing reaches a student, gradebook, parent, advisor, published course page, or official record until a human reads it and explicitly approves it.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
 
 ## Automated version
 
-Describe how a connected agent can gather the inputs, produce the artifact, and pause for review.
+Describe the connected version: what the agent can pull, what it can draft, and where it must pause.
 
 ## Automate even better
 
-Describe the durable data loop: pull, unify, store, analyze, improve next time.
+Describe the durable workflow: store source pulls, refresh prof-brain, reuse reviewed artifacts, and compare across terms.
