@@ -51,6 +51,19 @@ A domain pack is a short document that tells the generator what a realistic scen
 
 The packs keep scenarios company-agnostic so they stay general. To make examples land with students, draw the cast from `companies.md`, a catalog of real companies grouped into sets: modern digital and direct-to-consumer, big tech and platforms, traditional and established, retail, and finance and fintech. Choose the set that fits your course and the energy you want (modern-digital tends to feel most relevant to students; traditional suits operations and incumbent analysis), or mix two sets to force a real comparison. Add to the prompt: "Draw scenario companies from the [SET] in companies.md. Keep all numbers invented and plausible; do not state a real company's actual financial results." A question that contrasts a digital-native brand with a legacy firm in the same scenario is one of the most discriminating kinds you can write.
 
+## Post-analysis recommendations and fixes
+
+When reviewing existing quizzes or a generated bank, be proactive about what to fix next:
+
+- Topic coverage: identify objectives with too few items, too many items, or no scenario-based items.
+- Difficulty mix: recommend how many easy, medium, and hard questions to add or cut.
+- Distractor quality: rewrite weak distractors so each one maps to a named misconception.
+- Repeated items: flag near-duplicates across past terms and suggest replacements.
+- Exam connection: send high-stakes quiz coverage gaps to exam-rebalance before the exam is finalized.
+- Schedule connection: recommend where quizzes should land in the schedule so students get practice before graded exams.
+
+Offer to draft the missing or replacement items in the bank format, then stop for human review before import.
+
 ## What to check before you trust it
 
 1. Every question has exactly one defensible answer. Read each one as a skeptic and try to argue for a second option. If you can, fix it or cut it. This is the single most important check.
