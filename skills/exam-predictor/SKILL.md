@@ -7,61 +7,57 @@ description: Predict how each student is likely to score on an upcoming exam fro
 
 ## The problem
 
-You find out who was going to struggle on the exam after they have already struggled on it. By then the intervention you could have offered (a check-in, a study nudge, office hours) is too late. Meanwhile your gradebook already holds the signal: students have done weeks of work that, if you read it right, says a lot about how the exam will go. The catch is that not all of that work predicts equally. A completion-graded reading quiz and a rubric-graded applied analysis are not the same evidence, and treating them the same gives you a confident, wrong forecast.
+Forecast which students may be at risk on an upcoming exam using prior graded work and course history.
 
-This skill turns graded coursework into a per-student exam projection with a confidence band and at-risk flags, weighting each assignment by how much it actually predicts.
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
 ## What you need
 
-- Your gradebook: scores on the coursework graded so far.
-- A map from each exam topic or section to the assignments that exercise the same skill, with a sense of how strongly each assignment predicts that skill (see the README for the weighting model).
-- The exam structure: how many points are multiple choice versus open response, and which topics carry weight.
-- Optionally, prior course history (past terms) to calibrate the difficulty discount.
+- Required: De-identified gradebook, assignment categories, dates, prior exam outcomes if available, roster mapping held separately.
+- Prefer confirmed course context from `skills/prof-brain/` before asking the teacher to paste materials again.
+- If a connector or LMS is available, pull the smallest useful source set first and summarize it for confirmation.
+- If nothing is connected, ask for one small useful sample instead of the whole course.
 
-You can paste the gradebook and history, or, if the agent is connected to Canvas or your LMS, have it pull the current scores and the prior-term gradebooks itself instead of exporting them by hand. Wherever a prompt below says `[PASTE OR ATTACH SCORES]`, that becomes "read the gradebook from the course." See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for pulling multi-term history.
+## Agent workflow
 
-## What predicts and what is just noise
+1. State the source set you will use and what is missing.
+2. Use de-identified data in analysis and keep identity mapping separate.
+3. Weight evidence by recency and predictive value, not convenience.
+4. Present results as risk estimates, not certainties.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-This is the core of getting it right. Score assignments by how closely they exercise the same cognitive task as the exam:
+## Output
 
-- Strong predictors: rubric-graded work that does the same thing the exam asks (an applied analysis, a designed test, a worked case). These discriminate, so weight them heavily.
-- Moderate predictors: content-aligned but recall-level work (reading quizzes on the right topic).
-- Weak predictors: completion-graded work that barely touches the content.
-- Not predictors, exclude them: compliance and admin assignments (syllabus acknowledgement, introduce-yourself, choose-a-company) and, critically, any ungraded or practice assignment. Practice work is not a comparable signal and will distort the model. Leave it out.
+Prediction table, risk bands, explainable drivers, outreach suggestions, and limitations.
 
-## The prompt
+## Prompt to run
 
-> You are projecting exam scores for [COURSE] from graded coursework. You do not assign or replace any grade. You produce a forecast for my planning.
+> You are running the Exam Predictor skill for [COURSE]. Use only the materials I provide or the connected sources I confirm.
 >
-> Exam structure: [POINTS BY SECTION, e.g. 55 MC / 45 open response, and topic weights].
+> Task: Forecast which students may be at risk on an upcoming exam using prior graded work and course history.
 >
-> Here is the gradebook: [PASTE OR ATTACH SCORES].
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
-> Here is how assignments map to exam topics, with a predictive weight from 0.5 (weak) to 0.85 (strong, exercises the same skill): [PASTE THE MAP]. Exclude these compliance or practice assignments entirely: [LIST].
+> Produce: Prediction table, risk bands, explainable drivers, outreach suggestions, and limitations.
 >
-> For each student:
-> 1. Build a multiple-choice proxy from the recall-and-applied assignments and an open-response proxy from the rubric-graded applied work, each as a weighted average using the predictive weights.
-> 2. Apply a difficulty discount of [×0.93 default] to reflect that a timed exam is harder than coursework.
-> 3. Give a projected MC score, a projected open-response score, a total, a letter grade, and a confidence band whose width reflects how consistent the student has been (consistent student, narrow band; spiky student, wide band).
-> 4. Flag at-risk students and why (a zero on a strong-predictor assignment, high quiz but low applied work, an overall low coursework pattern).
->
-> End with the projected grade distribution and a short list of students to reach out to first.
+> Requirements: cite or name the source for important claims, mark missing evidence, put uncertain or student-impacting items in a review queue, and end with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## What to check before you trust it
+## What to check before trusting it
 
-1. Spot-check three students against your own read of their work. If the projection clashes with what you know, trust your read and ask why the model diverged.
-2. Calibrate the discount. The default assumes the exam is meaningfully harder than coursework. Run a harder discount as a stress test and see whether the top of the distribution collapses; that tells you how sensitive the forecast is.
-3. Confirm you excluded the non-predictive assignments. If compliance, practice, or ungraded work crept into a proxy, the numbers are inflated. Pull them and re-run.
-4. Treat the projection as directional. It is a planning tool and an early-warning system, not a grade and not a promise. The band is part of the answer; a wide band means "could land anywhere, watch this one."
+- The output uses only supplied or confirmed sources.
+- Dates, links, IDs, calculations, point totals, and policy language are verified.
+- Student-impacting items are clearly separated for human review.
+- The artifact is useful as a draft but does not pretend to be the final decision.
 
 ## The guardrail
 
-A prediction is a heads-up for you, never a verdict for the student. It does not go in the gradebook, it is never shown to a student, and it never becomes a label that lowers your expectations of someone. Its only legitimate use is to direct your attention and your support before the exam. After the exam, compare projections to actual scores to sharpen the model, and keep that comparison as your calibration record.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
 
 ## Automated version
 
-Connected to your gradebook, it pulls scores as they post, rebuilds the projection on a schedule, and surfaces a watchlist that updates through the term. Coverage matters: early on, with only a couple of assignments graded, the band is wide and the skill says so. As more graded work lands, the projection tightens. It proposes who to reach out to; you decide what support to offer.
+A connected agent may pull evidence from the LMS, Drive, local files, calendar, chat tools, or prof-brain, then build the same draft artifact. It must summarize what it found and wait for confirmation before writing back to any system.
 
 ## Automate even better
 
-Point an agentic browser or connector at your full course history, not just this term. Have it pull every past term's gradebook and the matching exam outcomes, unify them into one CSV (`student-cohort, assignment, score, eventual_exam_score`), and use that to learn which assignments actually predicted exam performance in your course rather than guessing the weights. That turns the predictive-weight map from an estimate into something measured against your own history. See `../../guides/automation.md` for the pull-unify-store-analyze pattern and `../../guides/canvas-lms.md` or `../../guides/other-lms.md` for pulling gradebook history.
+For repeated use, store source pulls as durable CSV or Markdown files, refresh prof-brain, and reuse the same reviewed patterns across terms. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.

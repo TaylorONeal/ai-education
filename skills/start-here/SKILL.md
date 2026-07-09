@@ -5,73 +5,59 @@ description: The front door for a teacher new to this toolkit. Use when someone 
 
 # Start Here
 
-This is the guided on-ramp. If you are an AI agent and a teacher just pointed you at this toolkit, run this. If you are a teacher, paste the prompt below into your AI tool and it will walk you through setup. Either way the goal is the same: from "what is this" to a real result, with the least possible effort from the teacher.
+## The problem
 
-## What this does, in order
+Onboard a teacher into the toolkit by asking one question at a time, then routing to one fast win.
 
-1. Orients the teacher in two sentences and states the one rule.
-2. Asks a few short questions, one at a time, never a wall of them.
-3. Ingests the teacher's own materials so the other skills work on real content instead of asking them to paste context over and over.
-4. Routes them to the one skill that solves their biggest time-sink, and runs it on a real example so the first session ends with something useful.
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
-The teacher should not have to read the whole repo, learn the file layout, or figure out which skill to pick. This skill does that for them.
+## What you need
 
-## The one rule, said up front
+- Required: Teacher context, biggest time sink, LMS or tool access, and one small real example.
+- Prefer confirmed course context from `skills/prof-brain/` before asking the teacher to paste materials again.
+- If a connector or LMS is available, pull the smallest useful source set first and summarize it for confirmation.
+- If nothing is connected, ask for one small useful sample instead of the whole course.
 
-AI does the draft. You make the call. Nothing reaches a student without you reading it first. Say this to the teacher early so the trust frame is set before anything runs.
+## Agent workflow
 
-## The prompt
+1. State the source set you will use and what is missing.
+2. Explain the toolkit and the one rule in two sentences.
+3. Ask one question at a time.
+4. Route to one skill, not the whole catalog.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-A teacher can paste this into any AI tool. An agent with the repo already in context can follow the same steps directly.
+## Output
 
-> You are my guide to the AI Teaching Toolkit. Walk me through getting started. Ask me one question at a time and wait for my answer before the next. Keep it plain, no jargon, and never dump a list of questions on me at once.
+A grounded first task, optional prof-brain ingestion plan, and one usable draft.
+
+## Prompt to run
+
+> You are running the Start Here skill for [COURSE]. Use only the materials I provide or the connected sources I confirm.
 >
-> Start by telling me in two sentences what this toolkit is and the one rule (AI drafts, I decide, nothing reaches a student without me reading it first).
+> Task: Onboard a teacher into the toolkit by asking one question at a time, then routing to one fast win.
 >
-> Then ask me, one at a time:
-> 1. What do you teach, and at what level? (subject and roughly high school, undergrad, or grad)
-> 2. What eats the most of your time right now: grading, participation, building quizzes or exams, writing announcements, auditing your course, or something else?
-> 3. What system do you use for your class? (Canvas, Blackboard, Moodle, Brightspace, Schoology, Google Classroom, or none)
-> 4. Have you connected any of your tools to an AI yet, or are we working by copy-paste for now?
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
-> Based on my answers:
-> - Name the single skill in this toolkit that fixes my biggest time-sink, and tell me what it will do for me in one sentence.
-> - Offer to ingest my course materials first using the prof-brain skill, so the other skills work on my real content instead of asking me to paste it every time. If I have my materials in a folder or my LMS, tell me exactly what to point you at.
-> - Then run that first skill on one real example of mine, end to end, so I finish this session with something I can actually use.
-> - At each step, tell me what you are about to do and what I should check before I trust it.
+> Produce: A grounded first task, optional prof-brain ingestion plan, and one usable draft.
 >
-> Do not try to do everything. One ingest, one skill, one real result. We can add more later.
+> Requirements: cite or name the source for important claims, mark missing evidence, put uncertain or student-impacting items in a review queue, and end with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## Make ingestion friction-free
+## What to check before trusting it
 
-The biggest hidden friction for a new teacher is handing over their materials. Lower it:
-
-- If their LMS is connected, do not ask them to gather files. Point prof-brain at the course and pull the readings, assignments, and past exams directly. See `../prof-brain/SKILL.md` and `../../guides/canvas-lms.md`.
-- If nothing is connected, ask for the smallest useful thing first: a syllabus and one assignment, not their whole drive. Show value on that, then offer to ingest more.
-- If they are copy-paste only, skip prof-brain entirely and just run the first skill on one pasted example. Ingestion is an optimization, not a gate.
-
-Never block the first win on a full setup. A teacher who gets one real result will come back and ingest the rest. A teacher stuck in setup will not.
-
-## Routing: pain point to first skill
-
-| They said their time goes to... | Start them on |
-|---|---|
-| Grading short answers or essays | grading-assistant |
-| Participation grades | participation-scoring |
-| Suspect AI-written student work | ai-output-checker |
-| Building or balancing an exam | exam-rebalance, then quiz-builder |
-| Writing announcements | announcement-writer |
-| Making course pages | canvas-page-generator |
-| Auditing their own course | class-content-analysis |
-| Knowing who is at risk | exam-predictor |
-| "Everything is scattered" | prof-brain first, then re-ask |
-
-Pick one. Resist the urge to show them the whole table.
-
-## What to check before you trust it
-
-This skill orients and routes; the real checks live in whichever skill you hand off to. Make sure the teacher reads the "what to check" section of that skill before they use its output. Do not let the smooth onboarding talk them into skipping the review step.
+- The output uses only supplied or confirmed sources.
+- Dates, links, IDs, calculations, point totals, and policy language are verified.
+- Student-impacting items are clearly separated for human review.
+- The artifact is useful as a draft but does not pretend to be the final decision.
 
 ## The guardrail
 
-This skill never touches student data or a gradebook itself. It sets up and routes. Every actual task runs through a skill that keeps the human in the loop and ends with its own guardrail. If onboarding ever starts to feel like it is doing the teaching work for the teacher rather than handing it back to them, stop and re-read the one rule.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
+
+## Automated version
+
+A connected agent may pull evidence from the LMS, Drive, local files, calendar, chat tools, or prof-brain, then build the same draft artifact. It must summarize what it found and wait for confirmation before writing back to any system.
+
+## Automate even better
+
+For repeated use, store source pulls as durable CSV or Markdown files, refresh prof-brain, and reuse the same reviewed patterns across terms. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.

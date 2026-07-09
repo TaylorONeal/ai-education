@@ -112,3 +112,8 @@ Merged the detailed real source material on this machine into the generic v1 tha
 ## How to resume
 
 Everything is in this folder. The skills are the single source of truth. To change any prompt: edit the skill, then `cd cookbook && npm install docx && node build-cookbook.js` to regenerate the cookbook. Never hand-edit the .docx.
+## 2026-07-09
+
+- Reviewed the skill library structure after a request to stop agents from making `SKILL.md` and `README.md` identical.
+- Rebuilt each teaching and operations `SKILL.md` as a Claude-style YAML-frontmatter agent runbook with concise use case, inputs, workflow, output, prompt, checks, guardrail, and automation sections.
+- Updated the skill template so future skills keep `SKILL.md` as the runnable agent file and `README.md` as the human field guide.
