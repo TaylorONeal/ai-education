@@ -2,7 +2,7 @@
 /*
  * build-cookbook.js
  *
- * Generates AI-Teaching-Cookbook.docx FROM the seven skill files in ../skills.
+ * Generates AI-Teaching-Cookbook.docx FROM the teaching skill files in ../skills.
  * The skills are the single source of truth. This script never invents content;
  * it extracts each skill's problem statement, its prompt blocks (verbatim),
  * what-to-check list, and guardrail, and lays them out for a non-technical reader.
@@ -37,6 +37,8 @@ const ORDER = [
   'announcement-writer',
   'canvas-page-generator',
   'quiz-builder',
+  'syllabus-creator',
+  'schedule-generator',
 ];
 
 function readSkill(name) {

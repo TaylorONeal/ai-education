@@ -28,6 +28,8 @@ Reduce ingestion friction: if their LMS is connected, pull their materials direc
 | announcement-writer | Drafting class announcements in your captured voice with the AI tells stripped | `skills/announcement-writer/` |
 | canvas-page-generator | Turning plain text into a clean, styled course page; capturing brand guidelines | `skills/canvas-page-generator/` |
 | quiz-builder | Generating scenario-based question banks that discriminate, in a selectable domain | `skills/quiz-builder/` |
+| syllabus-creator | Drafting or refreshing a syllabus from course goals, policies, assessments, dates, and prof-brain memory | `skills/syllabus-creator/` |
+| schedule-generator | Creating a detailed spreadsheet schedule with topics, subtopics, assignments, quizzes, exams, and dates | `skills/schedule-generator/` |
 | prof-brain | Ingesting all course materials into one organized knowledge base the other skills read from | `skills/prof-brain/` |
 | canvas-lms | Operating Canvas reliably from an agent: auth, styled content, grade entry, quiz edits | `skills/canvas-lms/` |
 
@@ -67,7 +69,7 @@ Use whatever automation surface the user has. The pattern is the same regardless
 
 ## prof-brain is the context layer
 
-When grounding any skill, prefer reading from the prof-brain knowledge base over asking the user to paste materials again. class-content-analysis, exam-rebalance, exam-predictor, quiz-builder, and announcement-writer all sharpen when pointed at the brain. Keep student PII out of the brain.
+When grounding any skill, prefer reading from the prof-brain knowledge base over asking the user to paste materials again. class-content-analysis, exam-rebalance, exam-predictor, quiz-builder, syllabus-creator, schedule-generator, and announcement-writer all sharpen when pointed at the brain. Keep student PII out of the brain.
 
 ## Top-level docs (for humans, and for you)
 
