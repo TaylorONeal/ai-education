@@ -56,7 +56,7 @@ Every skill is built around that line and ends with a guardrail enforcing it. Th
 
 ## What's inside
 
-Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (the prompt and a short how-to) and a `README.md` (the deep dive, with examples and the mistakes to avoid).
+Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (the agent runbook, prompt, checks, and guardrail) and a `README.md` (the human field guide, examples, edge cases, and adaptation notes). Some skills also include synthetic examples an agent can imitate.
 
 | Skill | What it does for you |
 |---|---|
