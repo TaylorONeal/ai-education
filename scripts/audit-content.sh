@@ -16,7 +16,7 @@ for f in skills/*/SKILL.md; do
   rg -q '^## The guardrail$' "$f" || say_fail "$f missing guardrail section"
 done
 
-teaching=(participation-scoring grading-assistant ai-output-checker class-content-analysis exam-rebalance exam-predictor announcement-writer canvas-page-generator quiz-builder)
+teaching=(participation-scoring grading-assistant ai-output-checker class-content-analysis exam-rebalance exam-predictor announcement-writer canvas-page-generator quiz-builder syllabus-creator schedule-generator)
 for skill in "${teaching[@]}"; do
   f="skills/$skill/SKILL.md"
   [[ -f "$f" ]] || say_fail "$f missing"

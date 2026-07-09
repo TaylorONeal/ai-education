@@ -69,10 +69,12 @@ Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (the agent r
 | [announcement-writer](skills/announcement-writer/) | Drafts announcements in your captured voice with the AI tells stripped out |
 | [canvas-page-generator](skills/canvas-page-generator/) | Turns plain text into a clean, styled course page, and captures your brand once |
 | [quiz-builder](skills/quiz-builder/) | Generates scenario-based question banks that discriminate, in any subject you choose |
+| [syllabus-creator](skills/syllabus-creator/) | Drafts or refreshes a syllabus from course goals, policies, assessments, dates, and prof-brain memory |
+| [schedule-generator](skills/schedule-generator/) | Builds a detailed spreadsheet-style course schedule with topics, subtopics, readings, assignments, quizzes, exams, and dates |
 
 Two support skills make the rest sharper:
 
-- [prof-brain](skills/prof-brain/) gathers all your course materials into one organized knowledge base the other skills read from, so you stop pasting the same context.
+- [prof-brain](skills/prof-brain/) gathers all your course materials into one organized knowledge base the other skills read from, including syllabus analysis for gaps, conflicts, and next-step recommendations.
 - [canvas-lms](skills/canvas-lms/) is the operational layer that runs Canvas reliably (login, styled content, grade entry, quiz edits) for any skill that has to land there.
 
 ## Why this beats writing your own prompt

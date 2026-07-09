@@ -2,7 +2,9 @@
 
 Working directory: `~/Class/ai-education/` (this folder). This is the local repo that maps to https://github.com/TaylorONeal/ai-education (currently empty, not yet pushed).
 
-Last updated: 2026-06-30.
+- Updated `skills/prof-brain/` so the setup flow now asks whether to create an optional source inbox of copied originals before building the Markdown brain. The source inbox is organized by term and type, keeps an `_intake-log.csv`, and tells agents to copy rather than move originals unless explicitly asked. The skill and README now direct connected agents to use Canvas or another LMS through a browser or connector, find related past-semester course shells, walk modules/pages/files/assignments/quizzes/rubrics/exams, and organize those sources before summarizing. `guides/automation.md` now names prof-brain in the pull-everything pattern.
+- Added syllabus-creator and schedule-generator as new teaching skills. prof-brain now includes syllabus analysis as part of the course brain, and class-content-analysis, exam-rebalance, and quiz-builder now include proactive post-analysis fix modes that offer concrete next actions instead of stopping at diagnosis. Updated the README, AGENTS index, guides index, cookbook order, and audit script so the new skills are first-class copy-paste skills.
+Last updated: 2026-07-09.
 
 ## Update (2026-07-09, seventh pass: non-destructive install-worthiness scaffold)
 

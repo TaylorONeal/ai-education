@@ -13,21 +13,45 @@ This skill ingests everything into one organized folder of Markdown notes with a
 
 ## What you need
 
-- Pointers to your sources: the local folders, the Google Drive folders, the LMS reading-module pages (URLs), the syllabus, the slide decks, and any past exams or course docs.
+- Pointers to your sources, if you already have them: the local folders, the Google Drive folders, the LMS reading-module pages (URLs), the syllabus, the slide decks, and any past exams or course docs.
 - A destination folder for the brain (a plain folder on disk is enough).
+- Optional but recommended: permission for the agent to create a staging folder named something like `[COURSE]-source-inbox/` and reorganize copies of your course files before building the Markdown brain. Keep originals in place unless you explicitly ask for a cleanup.
 - Optionally, a Notion workspace or an Obsidian vault if you want it synced there too.
 
-You do not have to track down every URL and file yourself. If the agent is connected to Canvas or your LMS, you can point it at the course and have it find the reading-module pages, assignments, and past exams on its own, instead of listing each source by hand. See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for walking every past term in one pass.
+You do not have to track down every URL and file yourself. If the agent is connected to Canvas or your LMS, you can point it at the course and have it find the reading-module pages, assignments, quizzes, files, rubrics, and past exams on its own, instead of listing each source by hand. Ask it to look for related course shells in past semesters too, then organize the copies by term before summarizing. See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for walking every past term in one pass.
 
 ## What it builds
 
-One note per source item, in a consistent folder tree, each note a Markdown file with frontmatter so it is findable and an agent can load only what it needs.
+Two coordinated folders:
+
+1. An optional source inbox that holds copied originals, sorted by term and source type, so you can inspect what the agent found.
+2. The Markdown brain, with one note per source item in a consistent folder tree, each note carrying frontmatter so it is findable and an agent can load only what it needs.
+
+If you skip the source inbox, the agent can build the Markdown brain directly from the sources you provide.
+
+Optional source inbox:
+
+```
+[COURSE]-source-inbox/
+  2026-spring/
+    syllabus/
+    readings/
+    assignments/
+    exams/
+    slides/
+    lms-pages/
+  2025-fall/
+    ...
+  _intake-log.csv     every source found, copied, skipped, or unreadable
+```
+
+Markdown brain:
 
 ```
 brain/
   INDEX.md          one line per note: title, type, and a hook (this is what loads into context)
   OVERVIEW.md       the course in one page: what it is, the arc, the big ideas
-  syllabus/         policies, schedule, grading, logistics
+  syllabus/         policies, schedule, grading, logistics, and syllabus analysis
   readings/         one note per reading or LMS reading-module page
   assignments/      one note per assignment, with its rubric
   exams/            past and current exams, normalized
@@ -54,11 +78,25 @@ The substance of the note in your own words. Link related notes with [[Open Rate
 
 > You are building my course knowledge base for [COURSE] as a folder of Markdown notes. Ingest the sources I list and turn each item into one note.
 >
-> Sources: [LOCAL FOLDERS], [DRIVE FOLDERS], [LMS READING PAGE URLS], [SYLLABUS FILE], [SLIDE DECKS], [PAST EXAMS].
+> Sources: [LOCAL FOLDERS], [DRIVE FOLDERS], [LMS COURSE URLS], [SYLLABUS FILE], [SLIDE DECKS], [PAST EXAMS]. If I have given you an LMS course URL instead of a complete source list, use the browser or connector to find the course materials yourself, including related past-semester course shells I can access.
+>
+> First ask whether I want an optional `[COURSE]-source-inbox/` staging folder of copied originals, organized by term and type. If yes, create it, copy or export what you can, and write `_intake-log.csv` with source, term, type, status, and notes. Do not move or delete originals unless I explicitly ask.
 >
 > For each item, create a Markdown note with frontmatter (title, type, source, term, tags), a faithful summary in plain language, and wiki-style links to related notes. Keep one concept per glossary note. Do not merge unrelated items.
 >
 > Then write INDEX.md (one line per note: title, type, and a one-line hook) and OVERVIEW.md (the course in one page). Flag any source you could not read cleanly so I can check it.
+
+## Syllabus analysis inside the brain
+
+When a syllabus is present, do more than summarize it. Create `syllabus/syllabus-analysis.md` with:
+
+- Missing or vague policies the instructor should clarify.
+- Date, grading, and workload conflicts to verify.
+- Alignment between learning objectives, weekly topics, assignments, quizzes, and exams.
+- Items that should feed syllabus-creator if the instructor wants a revised syllabus.
+- Items that should feed schedule-generator if the instructor wants a detailed spreadsheet schedule for the current or upcoming semester.
+
+If current or upcoming semester dates are not in the sources, ask for them before producing a dated schedule. Do not invent dates.
 
 ## The memory philosophy
 
@@ -77,9 +115,12 @@ This is a file-based brain on purpose, not a black-box index. The design rules k
 
 ## What to check before you trust it
 
-1. Verify extraction fidelity on a few notes, especially LMS pages and PDFs. A reading page that rendered as a navigation menu, or a PDF that came through garbled, makes a confidently wrong note. Check the flagged ones first.
-2. De-duplicate. If the same reading exists in two sources, you want one note, not two that will drift.
-3. Keep it current. Re-ingest a source when it changes. Treat the brain as living; an outdated policy note is a liability.
+1. Review `_intake-log.csv` if you used a source inbox. Confirm that skipped, duplicate, and unreadable items make sense before trusting the brain.
+2. Verify extraction fidelity on a few notes, especially LMS pages and PDFs. A reading page that rendered as a navigation menu, or a PDF that came through garbled, makes a confidently wrong note. Check the flagged ones first.
+3. Confirm term grouping. Past-semester shells often have copied names, unpublished drafts, and duplicate files. Make sure the term field reflects when the material was used, not just when it was copied.
+4. Review the syllabus analysis. Confirm missing policies, workload conflicts, and objective-assessment gaps before using them as the basis for a new syllabus or schedule.
+5. De-duplicate. If the same reading exists in two sources, you want one note, not two that will drift.
+6. Keep it current. Re-ingest a source when it changes. Treat the brain as living; an outdated policy note is a liability.
 
 ## The guardrail
 
@@ -87,11 +128,11 @@ The brain is course knowledge, not a student record. Keep student PII out of it:
 
 ## Automated version
 
-Connected to your local folders, Google Drive, and LMS, it ingests on a schedule, adds notes for new material, updates notes whose sources changed, and keeps the index and overview current. It tells you what it added or changed so the brain never silently drifts from your real materials.
+Connected to your local folders, Google Drive, and LMS, it can do two jobs. First, it can build or refresh the optional source inbox by copying originals into a term-by-type folder structure and logging every source it touched. Second, it ingests on a schedule, adds notes for new material, updates notes whose sources changed, and keeps the index and overview current. It tells you what it added, skipped, or changed so the brain never silently drifts from your real materials.
 
 ## Automate even better
 
-Point an agentic browser at your LMS and have it walk every reading-module page across every term you can reach, plus your Drive history, and ingest all of it in one pass, unifying old and new into the same note format. Past exams go through the same flow the automation guide describes (pull every version, normalize, store), landing in `exams/` as structured notes the exam-rebalance and exam-predictor skills can read directly. See `../../guides/automation.md`, and `../../guides/canvas-lms.md` or `../../guides/other-lms.md` for reaching LMS reading pages.
+Point an agentic browser at your LMS and have it start from the current course, then search the course list, archived courses, and past terms for related shells by course title, short name, department pattern, and teacher ownership. For every related shell it can access, have it open modules, pages, files, assignments, quizzes, rubrics, announcements if useful, and exams; export or copy originals into the source inbox; then ingest all of it in one pass, unifying old and new into the same note format. Past exams go through the same flow the automation guide describes (pull every version, normalize, store), landing in `exams/` as structured notes the exam-rebalance and exam-predictor skills can read directly. See `../../guides/automation.md`, and `../../guides/canvas-lms.md` or `../../guides/other-lms.md` for reaching LMS reading pages.
 
 ## How the rest of the toolkit uses it
 
