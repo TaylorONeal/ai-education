@@ -7,133 +7,57 @@ description: Build a professor's knowledge base by ingesting all your course sou
 
 ## The problem
 
-Your course knowledge is scattered. The syllabus is a PDF, the readings are LMS pages, the assignments are in one folder, the slides in another, last year's exams somewhere in Google Drive, your policies half in your head. Nothing can read all of it at once, so you re-explain context to an AI every time, and the answer to "what do my own materials actually say about this" takes an afternoon of digging. Every other skill in this toolkit works better when it is grounded in your real materials, and right now there is no single grounded place to point it at.
+Ingest course materials into an organized Markdown knowledge base that other skills can read.
 
-This skill ingests everything into one organized folder of Markdown notes with an index, a course brain you and your tools can read. It is the memory layer the rest of the toolkit draws on.
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
 ## What you need
 
-- Pointers to your sources, if you already have them: the local folders, the Google Drive folders, the LMS reading-module pages (URLs), the syllabus, the slide decks, and any past exams or course docs.
-- A destination folder for the brain (a plain folder on disk is enough).
-- Optional but recommended: permission for the agent to create a staging folder named something like `[COURSE]-source-inbox/` and reorganize copies of your course files before building the Markdown brain. Keep originals in place unless you explicitly ask for a cleanup.
-- Optionally, a Notion workspace or an Obsidian vault if you want it synced there too.
+- Required: Pointers to local folders, LMS pages, Drive folders, syllabus, slides, exams, policies, and destination folder.
+- Prefer confirmed course context from `skills/prof-brain/` before asking the teacher to paste materials again.
+- If a connector or LMS is available, pull the smallest useful source set first and summarize it for confirmation.
+- If nothing is connected, ask for one small useful sample instead of the whole course.
 
-You do not have to track down every URL and file yourself. If the agent is connected to Canvas or your LMS, you can point it at the course and have it find the reading-module pages, assignments, quizzes, files, rubrics, and past exams on its own, instead of listing each source by hand. Ask it to look for related course shells in past semesters too, then organize the copies by term before summarizing. See `../../guides/canvas-lms.md` for Canvas, `../../guides/other-lms.md` for other platforms, and `../../guides/automation.md` for walking every past term in one pass.
+## Agent workflow
 
-## What it builds
+1. State the source set you will use and what is missing.
+2. Copy or reference originals without moving them unless asked.
+3. Keep student PII out of the brain.
+4. Write small Markdown notes with frontmatter and an index.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-Two coordinated folders:
+## Output
 
-1. An optional source inbox that holds copied originals, sorted by term and source type, so you can inspect what the agent found.
-2. The Markdown brain, with one note per source item in a consistent folder tree, each note carrying frontmatter so it is findable and an agent can load only what it needs.
+Source inbox if requested, Markdown notes with frontmatter, index, gaps log, and refresh instructions.
 
-If you skip the source inbox, the agent can build the Markdown brain directly from the sources you provide.
+## Prompt to run
 
-Optional source inbox:
-
-```
-[COURSE]-source-inbox/
-  2026-spring/
-    syllabus/
-    readings/
-    assignments/
-    exams/
-    slides/
-    lms-pages/
-  2025-fall/
-    ...
-  _intake-log.csv     every source found, copied, skipped, or unreadable
-```
-
-Markdown brain:
-
-```
-brain/
-  INDEX.md          one line per note: title, type, and a hook (this is what loads into context)
-  OVERVIEW.md       the course in one page: what it is, the arc, the big ideas
-  syllabus/         policies, schedule, grading, logistics, and syllabus analysis
-  readings/         one note per reading or LMS reading-module page
-  assignments/      one note per assignment, with its rubric
-  exams/            past and current exams, normalized
-  slides/           lecture decks, summarized to text
-  glossary/         atomic notes, one concept per file, defined in your terms
-```
-
-Each note carries frontmatter and links to related notes:
-
-```
----
-title: Conversion Funnel Reading
-type: reading            # reading | assignment | exam | policy | slide | concept
-source: <original URL or file path>
-term: <when it was used, if relevant>
-tags: [e-commerce, funnel, metrics]
----
-
-The substance of the note in your own words. Link related notes with [[Open Rate]] and
-[[E-Commerce Assignment]] so the brain becomes a graph, not a pile.
-```
-
-## The prompt
-
-> You are building my course knowledge base for [COURSE] as a folder of Markdown notes. Ingest the sources I list and turn each item into one note.
+> You are running the Prof Brain skill for [COURSE]. Use only the materials I provide or the connected sources I confirm.
 >
-> Sources: [LOCAL FOLDERS], [DRIVE FOLDERS], [LMS COURSE URLS], [SYLLABUS FILE], [SLIDE DECKS], [PAST EXAMS]. If I have given you an LMS course URL instead of a complete source list, use the browser or connector to find the course materials yourself, including related past-semester course shells I can access.
+> Task: Ingest course materials into an organized Markdown knowledge base that other skills can read.
 >
-> First ask whether I want an optional `[COURSE]-source-inbox/` staging folder of copied originals, organized by term and type. If yes, create it, copy or export what you can, and write `_intake-log.csv` with source, term, type, status, and notes. Do not move or delete originals unless I explicitly ask.
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
-> For each item, create a Markdown note with frontmatter (title, type, source, term, tags), a faithful summary in plain language, and wiki-style links to related notes. Keep one concept per glossary note. Do not merge unrelated items.
+> Produce: Source inbox if requested, Markdown notes with frontmatter, index, gaps log, and refresh instructions.
 >
-> Then write INDEX.md (one line per note: title, type, and a one-line hook) and OVERVIEW.md (the course in one page). Flag any source you could not read cleanly so I can check it.
+> Requirements: cite or name the source for important claims, mark missing evidence, put uncertain or student-impacting items in a review queue, and end with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## Syllabus analysis inside the brain
+## What to check before trusting it
 
-When a syllabus is present, do more than summarize it. Create `syllabus/syllabus-analysis.md` with:
-
-- Missing or vague policies the instructor should clarify.
-- Date, grading, and workload conflicts to verify.
-- Alignment between learning objectives, weekly topics, assignments, quizzes, and exams.
-- Items that should feed syllabus-creator if the instructor wants a revised syllabus.
-- Items that should feed schedule-generator if the instructor wants a detailed spreadsheet schedule for the current or upcoming semester.
-
-If current or upcoming semester dates are not in the sources, ask for them before producing a dated schedule. Do not invent dates.
-
-## The memory philosophy
-
-This is a file-based brain on purpose, not a black-box index. The design rules keep it useful as it grows:
-
-- Atomic notes. One reading, one assignment, one concept per file. Small notes are easier to update, link, and load selectively than one giant document.
-- An index that loads into context. INDEX.md is the map an agent reads first, then it pulls only the few notes it needs. The index is the thing that makes a large brain usable in a limited context window.
-- Canonical, single source. Each fact lives in one note. Other notes link to it rather than restating it, so the brain never contradicts itself.
-- Link liberally. A link to a note that does not exist yet is fine; it marks something worth writing. The graph is where the value compounds.
-- Prune and merge. When two notes cover the same thing, merge them. When a source changes, update its note. A stale brain is worse than no brain.
-
-## Syncing to Notion or Obsidian (optional)
-
-- Obsidian: an Obsidian vault is just a folder of Markdown with `[[wikilinks]]`, which is exactly what this builds. Point Obsidian at the brain folder and it works natively, graph view and all. No conversion needed. Agent instruction: write the notes with wikilinks and tell the user to open the folder as a vault.
-- Notion: push each note as a page, preserving the folder tree as a page hierarchy, and turn INDEX.md into a database with the frontmatter fields as properties (type, term, tags). Agent instruction: use the Notion API or MCP connector to create a parent page per folder, a child page per note, and a database for the index; keep the on-disk Markdown as the source of truth and treat Notion as a published view, so you can always rebuild it.
-
-## What to check before you trust it
-
-1. Review `_intake-log.csv` if you used a source inbox. Confirm that skipped, duplicate, and unreadable items make sense before trusting the brain.
-2. Verify extraction fidelity on a few notes, especially LMS pages and PDFs. A reading page that rendered as a navigation menu, or a PDF that came through garbled, makes a confidently wrong note. Check the flagged ones first.
-3. Confirm term grouping. Past-semester shells often have copied names, unpublished drafts, and duplicate files. Make sure the term field reflects when the material was used, not just when it was copied.
-4. Review the syllabus analysis. Confirm missing policies, workload conflicts, and objective-assessment gaps before using them as the basis for a new syllabus or schedule.
-5. De-duplicate. If the same reading exists in two sources, you want one note, not two that will drift.
-6. Keep it current. Re-ingest a source when it changes. Treat the brain as living; an outdated policy note is a liability.
+- The output uses only supplied or confirmed sources.
+- Dates, links, IDs, calculations, point totals, and policy language are verified.
+- Student-impacting items are clearly separated for human review.
+- The artifact is useful as a draft but does not pretend to be the final decision.
 
 ## The guardrail
 
-The brain is course knowledge, not a student record. Keep student PII out of it: no rosters, no grades, no individual student work, especially in anything you sync to a third-party tool like Notion. If you want student-facing analysis, that belongs in the skills that handle it with their own guardrails, not in a shared knowledge base. See PRINCIPLES.md.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
 
 ## Automated version
 
-Connected to your local folders, Google Drive, and LMS, it can do two jobs. First, it can build or refresh the optional source inbox by copying originals into a term-by-type folder structure and logging every source it touched. Second, it ingests on a schedule, adds notes for new material, updates notes whose sources changed, and keeps the index and overview current. It tells you what it added, skipped, or changed so the brain never silently drifts from your real materials.
+A connected agent may pull evidence from the LMS, Drive, local files, calendar, chat tools, or prof-brain, then build the same draft artifact. It must summarize what it found and wait for confirmation before writing back to any system.
 
 ## Automate even better
 
-Point an agentic browser at your LMS and have it start from the current course, then search the course list, archived courses, and past terms for related shells by course title, short name, department pattern, and teacher ownership. For every related shell it can access, have it open modules, pages, files, assignments, quizzes, rubrics, announcements if useful, and exams; export or copy originals into the source inbox; then ingest all of it in one pass, unifying old and new into the same note format. Past exams go through the same flow the automation guide describes (pull every version, normalize, store), landing in `exams/` as structured notes the exam-rebalance and exam-predictor skills can read directly. See `../../guides/automation.md`, and `../../guides/canvas-lms.md` or `../../guides/other-lms.md` for reaching LMS reading pages.
-
-## How the rest of the toolkit uses it
-
-Once the brain exists, point the other skills at it instead of pasting context each time: class-content-analysis reads the readings and assignments, exam-rebalance and exam-predictor read the exams and rubrics, announcement-writer reads the schedule and policies, grading-assistant reads the rubrics. The brain is the shared, grounded context that makes every other skill sharper.
+For repeated use, store source pulls as durable CSV or Markdown files, refresh prof-brain, and reuse the same reviewed patterns across terms. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.

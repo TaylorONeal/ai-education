@@ -7,84 +7,57 @@ description: Audit your own course materials (readings, slides, assignments) for
 
 ## The problem
 
-Nobody audits their own course. You build it once, then patch it term by term, and over a few years it drifts. Two readings now cover the same thing. A learning objective you list is never actually assessed. One unit reads at a graduate level and the next reads like a pamphlet. You cannot see this from inside it, and you never have a free week to step back and check.
+Review course materials for gaps, overlap, reading level mismatch, sequence problems, and objective alignment.
 
-This skill is the outside reviewer you cannot afford to hire. It reads your materials against your stated objectives and tells you where the gaps, overlaps, and mismatches are.
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
 ## What you need
 
-- Your list of learning objectives for the course or unit.
-- The materials: readings, slide decks, assignment prompts, whatever students actually receive.
-- Prior versions of the course or its key assessments, if you have them. The comparison is where the most useful findings come from.
+- Required: Learning objectives, readings, slides, assignments, assessments, prior versions, or a prof-brain folder.
+- Prefer confirmed course context from `skills/prof-brain/` before asking the teacher to paste materials again.
+- If a connector or LMS is available, pull the smallest useful source set first and summarize it for confirmation.
+- If nothing is connected, ask for one small useful sample instead of the whole course.
 
-You can paste or attach all of this, or skip the file-gathering entirely: if the agent is connected to Canvas or your LMS, point it at the course and have it pull the readings, slides, assignments, and prior versions itself. Wherever a prompt below says `[PASTE OR ATTACH ...]`, that becomes "read it from the course." See `../../guides/canvas-lms.md` for Canvas and `../../guides/other-lms.md` for other platforms. The prof-brain skill is the cleanest version of this: ingest everything once, then point this skill at the brain.
+## Agent workflow
 
-## The prompt
+1. State the source set you will use and what is missing.
+2. Map every objective to taught material and assessed work.
+3. Separate evidence-based findings from opinions.
+4. Prioritize fixes by student impact and ease of repair.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-> You are reviewing the materials for [COURSE]. Be a tough, specific reviewer, not a cheerleader.
+## Output
+
+Prioritized audit with evidence, affected materials, recommended fixes, and follow-up skill suggestions.
+
+## Prompt to run
+
+> You are running the Class Content Analysis skill for [COURSE]. Use only the materials I provide or the connected sources I confirm.
 >
-> Here are my learning objectives:
-> [PASTE OBJECTIVES]
+> Task: Review course materials for gaps, overlap, reading level mismatch, sequence problems, and objective alignment.
 >
-> Here are the materials students receive:
-> [PASTE OR ATTACH MATERIALS]
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
-> Tell me:
-> 1. Coverage gaps. Which objectives are stated but never taught or assessed? Quote where each objective should appear and does not.
-> 2. Overlap. Where do two or more materials cover the same ground in a way that wastes student time? Be specific about which ones.
-> 3. Reading level. Flag any material that is noticeably harder or easier than the rest, with the rough grade level of each and which ones are outliers.
-> 4. Assessment alignment. For each objective, name the assignment or assessment that actually measures it. If none exists, say so.
-> 5. Sequence. Anything that depends on a concept introduced later, or introduces a term before defining it.
+> Produce: Prioritized audit with evidence, affected materials, recommended fixes, and follow-up skill suggestions.
 >
-> Give me a prioritized list of fixes, hardest-hitting first. For each fix, offer the concrete next action: rewrite a topic sequence, add or cut a reading, revise an assignment, rebalance an exam or quiz, create missing quiz items, update the syllabus, or generate a new schedule table.
+> Requirements: cite or name the source for important claims, mark missing evidence, put uncertain or student-impacting items in a review queue, and end with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## Map content to categories and weigh it
+## What to check before trusting it
 
-The alignment table gets sharper when you group materials into the categories you actually think in, then compare weight to emphasis. Add this when you want the coverage math:
-
-> Group every reading, slide deck, and assignment into these categories: [LIST YOUR TOPIC CATEGORIES]. For each category, tell me how many materials cover it, how much assessment weight it carries, and roughly how much class time it gets. Flag any category that is heavily taught but barely assessed, or heavily assessed but barely taught.
-
-A category that eats three weeks of class but shows up in two points of assessment is a real misalignment, and it is invisible until you lay the weights side by side.
-
-## Compare against prior versions
-
-If you have past versions, the drift is the story:
-
-> Here are prior versions of this course's materials and assessments: [PASTE OR ATTACH]. Compare the current version to them. Which topics have gained or lost emphasis over time? Which objectives quietly dropped out, and was that intentional? Has the overall reading level crept up or down? Give me a short trend summary and anything I should correct.
-
-If you have performance history (which topics students consistently struggle with across terms), feed that in too and ask the model to flag any category that is both hard for students and under-supported in the materials.
-
-## Post-analysis fix mode
-
-After the report, be proactive. Do not stop at naming gaps. Offer to draft the specific fixes the teacher chooses:
-
-- Topic fixes: revise the unit sequence, add missing subtopics, or trim duplicated coverage.
-- Assignment fixes: rewrite prompts or rubrics so they assess the stated objective.
-- Quiz fixes: hand off missing objectives to quiz-builder and ask for new scenario-based items.
-- Exam fixes: hand off coverage or difficulty problems to exam-rebalance.
-- Syllabus fixes: hand off policy, objective, or schedule issues to syllabus-creator and schedule-generator.
-
-Ask which fixes to draft first, then produce editable drafts. Never edit the live LMS or student-facing materials without approval.
-
-## What to check before you trust it
-
-1. Verify each "gap" against your full materials. The AI only sees what you paste. A gap may just mean you forgot to include a file. Confirm before you rewrite a unit.
-2. Judge the reading-level calls yourself. Grade-level estimates are rough. Use them to find outliers worth reading, not as gospel.
-3. Sanity-check the alignment and category math against your real assessment weights. This is the most valuable output. If an objective genuinely has no assessment, that is a real finding worth acting on.
-4. Treat trend claims as directional. The model is inferring emphasis from what you gave it, not measuring it. Confirm a drift is real before you act on it.
+- The output uses only supplied or confirmed sources.
+- Dates, links, IDs, calculations, point totals, and policy language are verified.
+- Student-impacting items are clearly separated for human review.
+- The artifact is useful as a draft but does not pretend to be the final decision.
 
 ## The guardrail
 
-This is advice, not a mandate. You know your students and your constraints. Treat the output as a sharp colleague's review: take the findings that hold up, discard the ones that miss context, and you decide what changes.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
 
 ## Automated version
 
-Point it at your course folder or LMS and it can pull every reading, slide, and assignment, build the category-and-weight table, run the alignment check, and diff against last term's version on a schedule. It produces a report you read. It never edits your materials or your syllabus on its own.
-
-## When to run it
-
-Once before the term to catch gaps while you can still fix them, and once after to capture what drifted. Keep each report. Comparing this year's to last year's shows you whether your patches are improving the course or just moving the problems around.
+A connected agent may pull evidence from the LMS, Drive, local files, calendar, chat tools, or prof-brain, then build the same draft artifact. It must summarize what it found and wait for confirmation before writing back to any system.
 
 ## Automate even better
 
-Have an agentic browser walk every reading, slide deck, and assignment across every past term you can reach, unify them into one dataset, and run the drift analysis on real material instead of memory. This pairs naturally with the prof-brain skill, which turns that same pull into a durable, organized knowledge base. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.
+For repeated use, store source pulls as durable CSV or Markdown files, refresh prof-brain, and reuse the same reviewed patterns across terms. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.

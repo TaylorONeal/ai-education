@@ -7,51 +7,57 @@ description: Draft a clear, complete syllabus from course goals, policies, asses
 
 ## The problem
 
-A syllabus is part promise, part map, and part policy document. It is easy to copy last term's file, miss an old date, leave a policy vague, or build a schedule that does not match the assignments you actually plan to use. Students feel that mess first, and you spend the term answering questions the syllabus should have handled.
+Draft or refresh a syllabus from course goals, policies, assessments, calendar constraints, and prof-brain.
 
-This skill drafts a usable syllabus from your course goals, materials, policies, assessments, and calendar constraints. It works best after prof-brain has ingested the course, because then the syllabus is drawn from the materials you really teach instead of a blank template.
+Do not use this skill to send messages to students, post grades, publish pages, or make official decisions without a human approval step.
 
 ## What you need
 
-- Course basics: [COURSE], [LEVEL], [MODALITY], [TERM], meeting pattern, credit hours, and any required catalog language.
-- Learning objectives, major topics, assessments, grading weights, and required policies.
-- Calendar constraints: first day, last day, holidays, exam windows, no-class dates, drop dates if you include them.
-- Existing syllabus or prof-brain folder, if available.
-- Tone preference: concise, warm, strict, detailed, or another style.
+- Required: Course basics, objectives, assessments, policies, calendar dates, existing syllabus, and tone.
+- Prefer confirmed course context from `skills/prof-brain/` before asking the teacher to paste materials again.
+- If a connector or LMS is available, pull the smallest useful source set first and summarize it for confirmation.
+- If nothing is connected, ask for one small useful sample instead of the whole course.
 
-If dates are not available in the brain or in what you provide, the agent should ask for the current or upcoming semester dates before drafting the schedule section. Do not invent institutional dates.
+## Agent workflow
 
-## The prompt
+1. State the source set you will use and what is missing.
+2. Do not invent dates, policies, catalog language, or grading rules.
+3. Use prof-brain or existing syllabus first.
+4. Separate draft text from required human verification.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-> You are drafting a syllabus for [COURSE]. Use my existing course materials if provided, especially the prof-brain knowledge base. If any required dates, institutional policies, or grading rules are missing, ask me before drafting rather than inventing them.
+## Output
+
+Complete syllabus draft plus verification checklist for dates, policies, grading math, and accessibility language.
+
+## Prompt to run
+
+> You are running the Syllabus Creator skill for [COURSE]. Use only the materials I provide or the connected sources I confirm.
 >
-> Course basics: [COURSE BASICS]
-> Existing materials or prof-brain path: [PASTE OR ATTACH, OR SAY NONE]
-> Required policies: [PASTE POLICIES]
-> Assessments and grading weights: [PASTE ASSESSMENTS]
-> Calendar constraints: [PASTE DATES, OR ASK ME]
-> Tone: [TONE]
+> Task: Draft or refresh a syllabus from course goals, policies, assessments, calendar constraints, and prof-brain.
 >
-> Draft a complete syllabus with these sections: course description, learning objectives, materials, how the course works, assessments and grading, weekly outline, communication expectations, late work, attendance or participation, academic integrity and AI use, accessibility and support, and what students should do first.
+> Inputs: [PASTE INPUTS, OR READ FROM CONFIRMED SOURCES].
 >
-> After the draft, give me a review checklist of what I must verify before sharing it with students, including dates, policy language, grading math, accessibility language, and any institution-required text.
+> Produce: Complete syllabus draft plus verification checklist for dates, policies, grading math, and accessibility language.
+>
+> Requirements: cite or name the source for important claims, mark missing evidence, put uncertain or student-impacting items in a review queue, and end with what I must check before trusting the output. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
 
-## What to check before you trust it
+## What to check before trusting it
 
-1. Dates. Verify every class date, deadline, holiday, and exam window against the official academic calendar.
-2. Policies. Compare required policy language against your institution's current language. Do not trust a draft for legal, accessibility, or conduct wording.
-3. Grading math. Confirm weights total correctly and match the LMS gradebook you plan to use.
-4. Alignment. Make sure every major assessment supports at least one learning objective, and every objective appears in the course work.
-5. Tone. Read it like a student. Cut anything that sounds colder, vaguer, or more punitive than you intend.
+- The output uses only supplied or confirmed sources.
+- Dates, links, IDs, calculations, point totals, and policy language are verified.
+- Student-impacting items are clearly separated for human review.
+- The artifact is useful as a draft but does not pretend to be the final decision.
 
 ## The guardrail
 
-The syllabus is a draft until the instructor approves it. The AI must not publish it to the LMS, email it, or present it as official policy without human review. Required institutional language, accessibility statements, legal policies, and dates must be verified by a human.
+AI does the draft. The teacher makes the call. Nothing reaches a student without a human reading it first.
 
 ## Automated version
 
-Connected to prof-brain, local files, and the LMS, the agent can pull the existing syllabus, assignments, rubrics, course pages, and term shell dates, then draft a refreshed syllabus and a verification checklist. It stops at a draft and asks for approval before pushing anything to Canvas or another LMS.
+A connected agent may pull evidence from the LMS, Drive, local files, calendar, chat tools, or prof-brain, then build the same draft artifact. It must summarize what it found and wait for confirmation before writing back to any system.
 
 ## Automate even better
 
-Use prof-brain first to ingest past syllabi, assignments, readings, exams, and policies across terms. Then use this skill to draft the new syllabus from the organized brain, and pass the weekly outline to schedule-generator so dates, topics, readings, assignments, quizzes, and exams become a spreadsheet you can inspect before building pages or modules.
+For repeated use, store source pulls as durable CSV or Markdown files, refresh prof-brain, and reuse the same reviewed patterns across terms. See `../../guides/automation.md` for the pull, unify, store, analyze pattern.
