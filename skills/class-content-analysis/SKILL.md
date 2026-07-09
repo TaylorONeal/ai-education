@@ -36,7 +36,7 @@ You can paste or attach all of this, or skip the file-gathering entirely: if the
 > 4. Assessment alignment. For each objective, name the assignment or assessment that actually measures it. If none exists, say so.
 > 5. Sequence. Anything that depends on a concept introduced later, or introduces a term before defining it.
 >
-> Give me a prioritized list of fixes, hardest-hitting first.
+> Give me a prioritized list of fixes, hardest-hitting first. For each fix, offer the concrete next action: rewrite a topic sequence, add or cut a reading, revise an assignment, rebalance an exam or quiz, create missing quiz items, update the syllabus, or generate a new schedule table.
 
 ## Map content to categories and weigh it
 
@@ -53,6 +53,18 @@ If you have past versions, the drift is the story:
 > Here are prior versions of this course's materials and assessments: [PASTE OR ATTACH]. Compare the current version to them. Which topics have gained or lost emphasis over time? Which objectives quietly dropped out, and was that intentional? Has the overall reading level crept up or down? Give me a short trend summary and anything I should correct.
 
 If you have performance history (which topics students consistently struggle with across terms), feed that in too and ask the model to flag any category that is both hard for students and under-supported in the materials.
+
+## Post-analysis fix mode
+
+After the report, be proactive. Do not stop at naming gaps. Offer to draft the specific fixes the teacher chooses:
+
+- Topic fixes: revise the unit sequence, add missing subtopics, or trim duplicated coverage.
+- Assignment fixes: rewrite prompts or rubrics so they assess the stated objective.
+- Quiz fixes: hand off missing objectives to quiz-builder and ask for new scenario-based items.
+- Exam fixes: hand off coverage or difficulty problems to exam-rebalance.
+- Syllabus fixes: hand off policy, objective, or schedule issues to syllabus-creator and schedule-generator.
+
+Ask which fixes to draft first, then produce editable drafts. Never edit the live LMS or student-facing materials without approval.
 
 ## What to check before you trust it
 
