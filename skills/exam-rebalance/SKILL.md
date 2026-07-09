@@ -32,7 +32,7 @@ You do not have to dig any of this out by hand. You can paste it, or, if the age
 > 3. Bad questions. Flag anything ambiguous, anything with more than one defensible answer, anything where the wording gives away the answer, and any question that tests recall when the objective was application.
 > 4. Point weighting. Flag any bank or section where each question is worth more than the others, because one confusing question there does double damage. Those are the first place to look when post-exam complaints come in.
 >
-> End with a prioritized fix list.
+> End with a prioritized fix list. For each fix, say whether you can draft the revised question, adjust point weights, add a missing topic question, remove a weak item, or send a gap to quiz-builder for new items.
 
 ## Part 2: Simulate the test before students do
 
@@ -68,6 +68,19 @@ A spread of roughly 45 to 50 points from floor to ceiling on a 100-point exam is
 
 > Here are prior versions of this exam: [PASTE OR ATTACH PRIOR EXAMS].
 > Compare the current version to all of them. Tell me: has overall difficulty drifted up or down? Which topics have gained or lost emphasis over time? Are there questions that repeat across versions (a problem if students share old exams)? Are there topics that appeared in past exams but dropped out, and was that intentional? Give me a short trend summary and anything I should correct.
+
+## Post-analysis fix mode
+
+After the difficulty, coverage, persona, or prior-term analysis, offer concrete fixes instead of stopping at diagnosis:
+
+- Rewrite ambiguous questions and explain exactly what changed.
+- Repoint questions to the intended learning objective.
+- Adjust point weights and show the before-and-after coverage table.
+- Add missing-topic questions by handing the gap to quiz-builder.
+- Remove or replace repeated questions from past exams.
+- Update the syllabus or schedule if the exam is testing material that was not taught or practiced.
+
+Ask the teacher which fixes to draft, then produce a change log. The teacher approves every question and point value.
 
 ## What to check before you trust it
 
