@@ -15,6 +15,10 @@ Choose a teaching task. Give your AI the relevant instructions and materials. Re
 | Evaluate the toolkit for a department or teaching team | [Team rollout](docs/TEAMS.md) |
 | Maintain the code, packages, or website | [Contributor guide](CONTRIBUTING.md) and [documentation index](docs/INDEX.md) |
 
+## Plan or refresh a course
+
+Start with [prof-brain](skills/prof-brain/SKILL.md) to organize sources without moving originals, then [class-content-analysis](skills/class-content-analysis/SKILL.md) to identify gaps. Draft the syllabus and schedule before creating pages, question banks, or exam revisions. Review each artifact before publishing. For one urgent task, go straight to that skill.
+
 ## Pick the work you need done
 
 | Task | Skill | Review before using |
@@ -30,6 +34,8 @@ Choose a teaching task. Give your AI the relevant instructions and materials. Re
 | Plan pre-exam support | [Exam readiness](skills/exam-predictor/SKILL.md) | Missing evidence and any forecast validation |
 | Audit course materials | [Class content analysis](skills/class-content-analysis/SKILL.md) | Sources behind gaps and overlap |
 | Organize course knowledge | [Prof brain](skills/prof-brain/SKILL.md) | Extraction, term conflicts, and restricted material |
+| Draft a syllabus | [Syllabus creator](skills/syllabus-creator/SKILL.md) | Policies, assessment weights, and dates |
+| Plan the term | [Schedule generator](skills/schedule-generator/SKILL.md) | Calendar conflicts, pacing, and prerequisites |
 | Operate Canvas | [Canvas LMS](skills/canvas-lms/SKILL.md) | Exact destination, reviewed content, and saved result |
 
 ## Four ways to use the same skills

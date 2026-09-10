@@ -33,7 +33,7 @@ On Windows, use `py -3` in place of `python3`. PowerShell users can run the same
 | `copilot` | `~/.copilot/skills` | `.github/skills` |
 | `cursor` | `~/.cursor/skills` | `.cursor/skills` |
 
-Use `--project [PROJECT_FOLDER]` for project scope, or `--dest [SKILLS_FOLDER]` for a custom destination. Omit `--skill` to install all twelve skills; repeat it to select several. Use `--list` to see the available names. Avoid installing the same name in multiple discovery locations.
+Use `--project [PROJECT_FOLDER]` for project scope, or `--dest [SKILLS_FOLDER]` for a custom destination. Omit `--skill` to install all fourteen skills; repeat it to select several. Use `--list` to see the available names. Avoid installing the same name in multiple discovery locations.
 
 ```sh
 python3 scripts/install.py --agent claude --skill announcement-writer --skill quiz-builder --dry-run
