@@ -10,6 +10,8 @@ LABELS = {
     'announcement-writer': ('Draft a class update', 'Announcement writer', 'create', 'A draft in your voice, ready to review.'),
     'canvas-page-generator': ('Make a course page', 'Course page generator', 'create', 'Readable HTML for your course content.'),
     'quiz-builder': ('Build a question bank', 'Quiz builder', 'create', 'Questions, answer rationales, and an authoring table.'),
+    'syllabus-creator': ('Draft a syllabus', 'Syllabus creator', 'create', 'A syllabus draft with policies and dates to verify.'),
+    'schedule-generator': ('Plan the course schedule', 'Schedule generator', 'create', 'A week-by-week plan with a conflict report.'),
     'grading-assistant': ('Review rubric-based scores', 'Grading assistant', 'review', 'Proposed scores with evidence and review flags.'),
     'participation-scoring': ('Review participation', 'Participation scoring', 'review', 'An activity table checked against your rubric.'),
     'ai-output-checker': ('Check claims and numbers', 'AI output checker', 'review', 'Verified claims, calculations, and unresolved sources.'),
@@ -63,7 +65,6 @@ def main():
         source_entries['ai-education/' + name] = read_public_file(ROOT / name)
     for name in ['build-cookbook.js', 'package.json', 'package-lock.json', 'AI-Teaching-Cookbook.docx']:
         source_entries['ai-education/cookbook/' + name] = read_public_file(ROOT / 'cookbook' / name)
-    source_entries['ai-education/LinkedIn-Article.md'] = read_public_file(ROOT / 'LinkedIn-Article.md')
     source_entries['ai-education/STATUS.md'] = b'# Release status\n\nSee docs/REVIEW.md for this release. Private workspace continuity is not distributed.\n'
     source_entries['ai-education/web/README.md'] = read_public_file(ROOT / 'web/README.md')
     for name in ['index.html', 'styles.css', 'app.js', 'catalog.js']:

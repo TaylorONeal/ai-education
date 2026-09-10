@@ -28,10 +28,24 @@ Reduce ingestion friction: if their LMS is connected, pull their materials direc
 | announcement-writer | Drafting class announcements in your captured voice with the AI tells stripped | `skills/announcement-writer/` |
 | canvas-page-generator | Turning plain text into a clean, styled course page; capturing brand guidelines | `skills/canvas-page-generator/` |
 | quiz-builder | Generating scenario-based question banks that discriminate, in a selectable domain | `skills/quiz-builder/` |
+| syllabus-creator | Drafting or refreshing a syllabus from course goals, policies, assessments, dates, and prof-brain memory | `skills/syllabus-creator/` |
+| schedule-generator | Creating a detailed spreadsheet schedule with topics, subtopics, assignments, quizzes, exams, and dates | `skills/schedule-generator/` |
 | prof-brain | Ingesting all course materials into one organized knowledge base the other skills read from | `skills/prof-brain/` |
 | canvas-lms | Operating Canvas reliably from an agent: auth, styled content, grade entry, quiz edits | `skills/canvas-lms/` |
 
 Each skill folder has a `SKILL.md` (the prompt and short how-to, usable immediately) and a `README.md` (the in-depth method, examples, lessons learned). Some carry extra files (grading-assistant ships a spreadsheet template, quiz-builder ships domain packs, canvas-page-generator ships a brand-guidelines template).
+
+## Skill file roles
+
+The repo has two audiences: teachers browsing the project and agents running installed skills. Keep the file roles separate without flattening the detail in the skills.
+
+- `SKILL.md` is the agent runbook and prompt source. It keeps the teaching-specific operating knowledge: what to gather, what can be pulled from tools, the prompt, checks, guardrail, automation notes, and the traps a generic prompt would miss.
+- `README.md` is the human field guide. It explains the method, examples, edge cases, and how a teacher, professor, or TA should adapt the skill.
+- `examples/` is optional and should be used for concrete synthetic artifacts an agent can imitate. Use placeholders only.
+- `_shared/` holds reusable review language, PII checks, LMS handoff patterns, output artifact patterns, and TA workflow patterns.
+- `_template/` is the starting point for a new skill. Copy it, then add the real domain detail for the task.
+
+A skill is install-worthy only when it preserves hard-won task detail and still stops at a clear human decision point. Do not make a skill generic by deleting the parts that make it useful.
 
 ## Guides: the platform and automation specifics
 
@@ -82,7 +96,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 2. Keep it LMS-agnostic; put platform specifics in a guide and link to it.
 3. If it is a copy-paste teaching or authoring skill, add it to the `ORDER` array in `cookbook/build-cookbook.js`. Operational skills stay out of the cookbook.
 4. Regenerate the cookbook: `npm ci --prefix cookbook`, then `node cookbook/build-cookbook.js`.
-5. Run the four gates before calling it done.
+5. Run `./scripts/audit-content.sh` and the four gates before calling it done.
 
 ## The four gates (run before shipping)
 

@@ -23,10 +23,14 @@ Open `http://127.0.0.1:4173`. Stop the server with Ctrl+C when finished.
 - `dist/catalog.js` and `dist/downloads/`: generated from skills and docs. Do not edit by hand.
 - `../scripts/build-toolkit.py`: shared generation step.
 
-Run `python3 scripts/check-toolkit.py` and `python3 -m unittest discover -s tests` after building. Syntax-check JavaScript with `node --check web/dist/app.js`. For browser testing when requested, verify task switching, prompt steps, copies and manual fallback, all agent/scope combinations, downloads, keyboard navigation, modal focus, phone layout, and enlarged text.
+Run `python3 scripts/check-toolkit.py` and `python3 -m unittest discover -s tests` after building. Run rendering security tests with `node --test tests/frontend-security.test.cjs`. Syntax-check JavaScript with `node --check web/dist/app.js`. For browser testing when requested, verify task switching, prompt steps, copies and manual fallback, all agent/scope combinations, downloads, keyboard navigation, modal focus, phone layout, and enlarged text.
 
 ## Host it
 
 Publish only the contents of `dist/` on a static host. Use the Sites manifest for Sites hosting. The directory contains only public toolkit instructions and generated packages. Do not add course records, credentials, or restricted answer keys. A private preview does not make the site public for other teachers; change its audience only through an authorized hosting action.
 
 The page has no external fonts or script dependencies. Links to product documentation and the source repository require internet access.
+
+## Distribution security
+
+The builder rejects symlinks and common credential filenames, including `.env` files and private keys, in distributed sources. Keep private course material outside this repository. These checks cannot identify every sensitive document. The page uses a restrictive Content Security Policy and no external scripts. See the [security review](../docs/SECURITY-REVIEW.md).

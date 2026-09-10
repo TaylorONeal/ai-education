@@ -1,3 +1,7 @@
+# Security and integration update: 2026-09-10
+
+Changed the visual heading to “Choose a teaching task.” Added distribution source checks and rendering regression tests; see docs/SECURITY-REVIEW.md. Integrated newer main changes, preserving two new skills, shared patterns, examples, and the content audit. Rebuilt the fourteen-skill catalog, downloads, and cookbook.
+
 # Current update: 2026-09-10
 
 Reviewed all twelve skill entrypoints and refreshed user/agent documentation. Added an offline visual task guide under web/dist with prompt selection, downloads, installation previews, and handoffs for chat, native, repository, connected, browser, cloud, custom, and scheduled agents.
@@ -14,7 +18,27 @@ SOUL.md and USER.md were not present in the repository. Preserved the existing s
 
 Working directory: `~/Class/ai-education/` (this folder). This is the local repo that maps to https://github.com/TaylorONeal/ai-education (currently empty, not yet pushed).
 
-Last updated: 2026-06-30.
+- Updated `skills/prof-brain/` so the setup flow now asks whether to create an optional source inbox of copied originals before building the Markdown brain. The source inbox is organized by term and type, keeps an `_intake-log.csv`, and tells agents to copy rather than move originals unless explicitly asked. The skill and README now direct connected agents to use Canvas or another LMS through a browser or connector, find related past-semester course shells, walk modules/pages/files/assignments/quizzes/rubrics/exams, and organize those sources before summarizing. `guides/automation.md` now names prof-brain in the pull-everything pattern.
+- Added syllabus-creator and schedule-generator as new teaching skills. prof-brain now includes syllabus analysis as part of the course brain, and class-content-analysis, exam-rebalance, and quiz-builder now include proactive post-analysis fix modes that offer concrete next actions instead of stopping at diagnosis. Updated the README, AGENTS index, guides index, cookbook order, and audit script so the new skills are first-class copy-paste skills.
+Last updated: 2026-07-09.
+
+## Update (2026-07-09, PR #3 review)
+
+Reviewed draft PR #3, `Fix SKILL.md/README.md duplication across all skills`. Its original concern was valid, but later work already chose the opposite fix: keep detailed README human field guides and preserve the task knowledge, while adding `_template/`, `_shared/`, examples, and `scripts/audit-content.sh` so the skills stay organized without being flattened. The PR is now stale against the current file-role convention and should be closed rather than merged.
+
+Clarified the contributor checklist so it matches the current convention: `SKILL.md` is the installed-agent runbook and `README.md` is the human field guide, with structure checks guarding against prompt-copy duplication.
+
+## Update (2026-07-09, README first-step visual)
+
+Added a README flowchart that shows the recommended first path through the toolkit: start-here, prof-brain, class-content-analysis, then the creation and assessment skills. The quick version under the visual names the same sequence and repeats the human review stop point.
+
+## Update (2026-07-09, seventh pass: non-destructive install-worthiness scaffold)
+
+Reverted the overly broad runbook rewrite and restored the detailed skill content. Added a lighter scaffold that preserves the existing hard-won detail: `skills/_template/` for new skills, `skills/_shared/` for reusable review, PII, LMS handoff, artifact, and TA workflow patterns, and a small set of synthetic expected-output examples for grading-assistant, participation-scoring, quiz-builder, and prof-brain.
+
+Added `scripts/audit-content.sh` to check the existing repo conventions without forcing every skill into a flattened template: no em dashes, frontmatter descriptions, guardrails, teaching-skill section structure, cookbook membership, operational-skill exclusion from the cookbook, and README presence. Updated AGENTS, CONTRIBUTING, and README to state the file roles and the quality bar.
+
+Decision this pass: keep the original detailed skills as the source of value. Add scaffolding and checks around them instead of replacing their voice and task knowledge with generic sections.
 
 ## Update (2026-06-30, sixth pass: teacher-first onboarding + OSS scaffold)
 
@@ -110,3 +134,8 @@ Merged the detailed real source material on this machine into the generic v1 tha
 ## How to resume
 
 Everything is in this folder. The skills are the single source of truth. To change any prompt: edit the skill, then `cd cookbook && npm install docx && node build-cookbook.js` to regenerate the cookbook. Never hand-edit the .docx.
+## 2026-07-09
+
+- Reviewed the skill library structure after a request to stop agents from making `SKILL.md` and `README.md` identical.
+- Rebuilt each teaching and operations `SKILL.md` as a Claude-style YAML-frontmatter agent runbook with concise use case, inputs, workflow, output, prompt, checks, guardrail, and automation sections.
+- Updated the skill template so future skills keep `SKILL.md` as the runnable agent file and `README.md` as the human field guide.

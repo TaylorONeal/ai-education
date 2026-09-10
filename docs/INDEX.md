@@ -13,6 +13,7 @@
 | Contributors | [Contributing](../CONTRIBUTING.md), [agent index](../AGENTS.md) |
 | Website development and hosting | [Web README](../web/README.md) |
 | Review findings and validation | [Review log](REVIEW.md) |
+| Security findings and regression coverage | [Security review](SECURITY-REVIEW.md) |
 | Decisions and continuity | [Status](../STATUS.md) |
 
 Canonical prompts live in `skills/`. Generated website data, downloads, and the cookbook must be rebuilt after skill changes.
