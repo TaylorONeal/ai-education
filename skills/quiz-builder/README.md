@@ -56,3 +56,7 @@ AI drafts; you approve every question that counts. A generated item on a graded 
 ## Across learning management systems
 
 The bank format imports into Canvas and most other systems. The push mechanics, and the Canvas-specific question-bank traps (bank-linked groups, the neutral-comments rule, relinking duplicated quizzes), are in `../../guides/canvas-lms.md`; other platforms are in `../../guides/other-lms.md`. The "automate even better" path (assembling every past question into one CSV to find coverage gaps and track item difficulty) is in `../../guides/automation.md`.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

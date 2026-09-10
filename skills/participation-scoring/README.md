@@ -36,7 +36,7 @@ If you score raw post counts linearly, one hyperactive student runs away with th
 | 30 to 39 | 9 |
 | 40+ | 10 |
 
-Set the thresholds against your actual class distribution, not a guess. If the whole class is quieter this term (the end of a semester, a heavy-workload stretch), lower the thresholds so the bands still discriminate. A bucket table that maps the whole class into two bands is not measuring anything.
+Apply published thresholds consistently. A narrow distribution may reflect the rubric or actual participation; it is not permission to change grading rules after observing scores. Require verified attendance, not a calendar booking, and distinguish inaccessible messages from absent participation.
 
 ## The curve and the floor
 
@@ -83,3 +83,7 @@ With AI wired to your chat tool, calendar, and a place to store output, the loop
 ## Privacy and records
 
 This is the most data-sensitive skill in the toolkit, so it is the one where PRINCIPLES.md matters most. Minimize what you feed the model: you do not need a student's full record to score participation, just the activity in the window. Prefer identifiers or initials over full names in prompts pasted into consumer tools. Tell students in your syllabus that participation is scored from logged activity. Keep the activity pull and the AI summary next to the grades you set, so any challenge has a paper trail. The AI counts. You grade.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

@@ -6,10 +6,12 @@ The split is deliberate. A skill is the base you use right now. A guide is the s
 
 ## The guides
 
+- [agents.md](agents.md): capability checks, evidence, privacy, reviewed writes, recovery, and handoffs for every agent type.
+
 - `canvas-lms.md`. The deepest one, built from real lessons. Covers authentication (a personal token, or the in-browser session and CSRF token), the forced inline styling the Rich Content Editor requires, pushing page and assignment HTML including the chunking trick for large bodies, entering grades three ways (CSV import, API batch, and SpeedGrader by hand including the keyboard-Enter save bug that silently drops grades), and the quiz and question-bank traps.
 - `other-lms.md`. The same operations for Blackboard, Moodle, Brightspace, Schoology, and Google Classroom: auth model, read, push grades, push content, with official-doc links and the spots to verify against your institution's setup.
 - `chat-and-discussion.md`. Where participation happens and how to pull per-student activity: LMS discussion forums, Slack, Discord, Microsoft Teams, Google Classroom, Telegram, and WhatsApp, ranked by how workable each is, with the rate limits and the name-matching gotchas that bite every time.
-- `automation.md`. The agentic tier every skill points to: use an MCP connector, an AI browser extension, an agentic browser, or a computer-use agent to pull everything (including archived terms the API will not show), unify it, store a CSV, and analyze across semesters and years.
+- `automation.md`. The agentic tier every skill points to: use an MCP connector, an AI browser extension, an agentic browser, or a computer-use agent to pull everything (including authorized prior terms where accessible), unify it, store a CSV, and analyze across semesters and years.
 
 ## Which skill points where
 
@@ -17,7 +19,7 @@ The split is deliberate. A skill is the base you use right now. A guide is the s
 |---|---|
 | participation-scoring | chat-and-discussion.md (plus the LMS guides for forum activity) |
 | grading-assistant | canvas-lms.md and other-lms.md (getting grades back in) |
-| ai-output-checker | canvas-lms.md and other-lms.md (pulling a submission's raw HTML) |
+| ai-output-checker | canvas-lms.md and other-lms.md (retrieving submissions and source evidence) |
 | class-content-analysis | any LMS guide (pulling materials) |
 | exam-rebalance | canvas-lms.md and other-lms.md (applying a rebalance); automation.md (all past exams to CSV) |
 | exam-predictor | canvas-lms.md and other-lms.md (gradebook); automation.md (prior-term history) |

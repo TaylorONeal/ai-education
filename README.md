@@ -1,158 +1,60 @@
 # AI Teaching Toolkit
 
-AI helpers for the parts of teaching that eat your week: scoring participation, grading against your rubric, checking AI-generated student work, building exams and quizzes, writing announcements, and keeping all your course knowledge in one place.
+Choose a teaching task. Give your AI the relevant instructions and materials. Review the draft before it reaches a student.
 
-You do not need to know how to code. If you can copy and paste, you can use this today.
+**No coding or installation required.** Start with [the visual guide](web/dist/index.html) after downloading this repository, or follow [your first task](GETTING-STARTED.md). The guide also works offline: open `web/dist/index.html` in a browser.
 
-## Is this for you?
+## Choose your starting point
 
-You probably want this if any of these sound like your week:
-
-- You grade participation from memory and a bad feeling that it is not fair.
-- You build the same kind of quiz every term and it takes a whole evening.
-- You suspect some submitted work was AI-generated but cannot prove it.
-- You write the same announcements over and over.
-- Your rubric is solid but grading 60 essays at 11pm is not.
-
-If yes, keep reading. The next section gets you a real result in about ten minutes, no setup.
-
-## Your first win in 10 minutes
-
-Start with the easiest one: drafting a class announcement. No accounts, no install.
-
-1. Open any AI chat tool you already have. ChatGPT, Claude, Gemini, Copilot, whatever your school gives you. A free account is fine.
-2. Open [`skills/announcement-writer/SKILL.md`](skills/announcement-writer/SKILL.md) in this repo and find the block under "The prompt."
-3. Copy that prompt and paste it into the AI chat.
-4. Replace the bracketed parts (like `[COURSE]` or `[WHAT YOU WANT TO SAY]`) with your real details.
-5. Read what it gives you. Fix anything that does not sound like you, and post it.
-
-That is the whole pattern. Every skill in here works the same way: copy a prompt, fill in your details, read the result before you use it. If that felt easy, [`GETTING-STARTED.md`](GETTING-STARTED.md) walks you through one full task end to end.
-
-New to any of the words here (skill, prompt, connector, agent)? The [`GLOSSARY.md`](GLOSSARY.md) explains each in one plain sentence.
-
-## What to do first
-
-Use the toolkit in this order when you are building or refreshing a course. Start by organizing the course, then diagnose it, then create or tune the pieces students will see.
-
-```mermaid
-flowchart TD
-    A[Start here
-New to the toolkit?] --> B[prof-brain
-Organize syllabus, files, pages, exams, rubrics, and prior terms]
-    B --> C[class-content-analysis
-Find gaps, overlap, drift, reading-level issues, and alignment problems]
-    C --> D{What do you need next?}
-    D --> E[canvas-page-generator
-Turn content into clean course pages]
-    D --> F[quiz-builder
-Create scenario-based question banks]
-    D --> G[exam-rebalance
-Check coverage, difficulty, and student personas before the exam]
-    G --> H[exam-predictor
-Spot risk before the next exam from graded coursework]
-    E --> I[Human review
-Read, edit, approve, then publish]
-    F --> I
-    H --> I
-```
-
-Quick version:
-
-1. **If you are new, run [start-here](skills/start-here/)** so the agent asks only the few questions needed and routes you to one useful first task.
-2. **Build the course brain with [prof-brain](skills/prof-brain/)** so the rest of the skills work from your real syllabus, pages, files, rubrics, exams, and prior terms.
-3. **Run [class-content-analysis](skills/class-content-analysis/)** to find what is missing, duplicated, misaligned, too hard, too easy, or drifting from the outcomes.
-4. **Create or improve student-facing materials** with [canvas-page-generator](skills/canvas-page-generator/) for pages and [quiz-builder](skills/quiz-builder/) for question banks.
-5. **Tune assessments before students take them** with [exam-rebalance](skills/exam-rebalance/), then use [exam-predictor](skills/exam-predictor/) when graded coursework exists and you want an early warning list to review.
-6. **Stop at the human decision point.** The AI drafts, flags, organizes, and predicts. You read, decide, and publish.
-
-## The three levels: from AI that gives you words to AI that does the work
-
-This is the part that matters most, so read it before you decide this is "just prompts."
-
-Every skill works at three levels. They are not three products. They are three rungs of the same ladder, and they differ in one thing: how much of the busywork you still do yourself.
-
-| Level | What the AI does | What you still do | Setup |
-|---|---|---|---|
-| 1. Plain AI chat | Thinks and drafts from the prompt you paste | You gather the data and do every click yourself | None |
-| 2. AI chat + skills | Thinks like an expert who already knows your method and the traps, same way every time | You still gather and click, but you stop re-explaining | Install a skill once |
-| 3. AI that controls your computer, plus skills | Gathers the data, does the clicks, drafts the result, then stops for your sign-off | You review and approve | Connect your tools, or use a computer-control agent |
-
-Level 1 helps, and it is a fine place to start. But be honest about where your time actually goes. With plain chat you are still the one pulling 60 submissions, pasting each into the box, and copying results back out. The thinking got easier. The work did not.
-
-The point of this toolkit is the climb. A skill turns the AI into an expert that does not need re-teaching and does not drift between students. A computer-control agent (Claude Cowork on the desktop, an AI browser extension, or an agentic browser) goes further: it opens your LMS, reads the roster, pulls the activity, does the clicking, and hands you a finished draft to approve. You go from doing the work to checking it. That is where a week actually gets shorter, and it is the part a plain chatbot can never do for you.
-
-You can start at level 1 today and climb whenever you are ready. Setup for levels 2 and 3 lives in the [guides](guides/), and [`GETTING-STARTED.md`](GETTING-STARTED.md) shows the same task done at level 1 and level 3 so you can feel the difference.
-
-## The one rule that makes this safe
-
-AI does the draft. You make the call. Nothing reaches a student without you reading it first.
-
-Every skill is built around that line and ends with a guardrail enforcing it. The AI compiles, flags, drafts, and predicts. You decide. If a skill ever tempts you to skip the read, you are using it wrong. Before you run anything on real student data, read [`PRINCIPLES.md`](PRINCIPLES.md). The short version: feed the model as little as you can, keep yourself in every grading decision, tell your students how AI is used, and never let an AI score or sanction a student without your review.
-
-## What's inside
-
-Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (the agent runbook, prompt, checks, and guardrail) and a `README.md` (the human field guide, examples, edge cases, and adaptation notes). Some skills also include synthetic examples an agent can imitate.
-
-| Skill | What it does for you |
+| You want to... | Start here |
 |---|---|
-| [participation-scoring](skills/participation-scoring/) | Pulls each student's real activity across your channels and scores it on rules you set, instead of a gut feeling |
-| [grading-assistant](skills/grading-assistant/) | Applies your rubric, flags correct-but-differently-worded answers, and records why each score |
-| [ai-output-checker](skills/ai-output-checker/) | Audits AI-assisted student work for fabricated numbers, invented sources, and pasted-AI artifacts |
-| [class-content-analysis](skills/class-content-analysis/) | Reviews your readings, slides, and assignments for gaps, overlap, reading level, and drift across terms |
-| [exam-rebalance](skills/exam-rebalance/) | Checks an exam's difficulty and coverage and simulates six kinds of student before anyone takes it |
-| [exam-predictor](skills/exam-predictor/) | Forecasts who is at risk from graded coursework, weighting assignments by what actually predicts |
-| [announcement-writer](skills/announcement-writer/) | Drafts announcements in your captured voice with the AI tells stripped out |
-| [canvas-page-generator](skills/canvas-page-generator/) | Turns plain text into a clean, styled course page, and captures your brand once |
-| [quiz-builder](skills/quiz-builder/) | Generates scenario-based question banks that discriminate, in any subject you choose |
-| [syllabus-creator](skills/syllabus-creator/) | Drafts or refreshes a syllabus from course goals, policies, assessments, dates, and prof-brain memory |
-| [schedule-generator](skills/schedule-generator/) | Builds a detailed spreadsheet-style course schedule with topics, subtopics, readings, assignments, quizzes, exams, and dates |
+| Try one task in ChatGPT, Claude, Gemini, Copilot, or another chat | [First task, no install](GETTING-STARTED.md) |
+| Browse tasks, copy prompts, and download skills visually | [Visual guide](web/dist/index.html) |
+| Install or update skills in a desktop, terminal, or editor agent | [Installation](INSTALL.md) |
+| Use connected tools or a browser agent | [Agent operating guide](guides/agents.md) |
+| Evaluate the toolkit for a department or teaching team | [Team rollout](docs/TEAMS.md) |
+| Maintain the code, packages, or website | [Contributor guide](CONTRIBUTING.md) and [documentation index](docs/INDEX.md) |
 
-Two support skills make the rest sharper:
+## Plan or refresh a course
 
-- [prof-brain](skills/prof-brain/) gathers all your course materials into one organized knowledge base the other skills read from, including syllabus analysis for gaps, conflicts, and next-step recommendations.
-- [canvas-lms](skills/canvas-lms/) is the operational layer that runs Canvas reliably (login, styled content, grade entry, quiz edits) for any skill that has to land there.
+Start with [prof-brain](skills/prof-brain/SKILL.md) to organize sources without moving originals, then [class-content-analysis](skills/class-content-analysis/SKILL.md) to identify gaps. Draft the syllabus and schedule before creating pages, question banks, or exam revisions. Review each artifact before publishing. For one urgent task, go straight to that skill.
 
-## Why this beats writing your own prompt
+## Pick the work you need done
 
-The value here is not a clever prompt you could have written yourself. It is the operating knowledge underneath each task, the part that normally takes a semester of trial and error to learn.
+| Task | Skill | Review before using |
+|---|---|---|
+| Find a first task | [Start here](skills/start-here/SKILL.md) | The selected task and smallest useful input |
+| Draft a class update | [Announcement writer](skills/announcement-writer/SKILL.md) | Dates, links, tone, and policy |
+| Format a course page | [Course page generator](skills/canvas-page-generator/SKILL.md) | Meaning, accessibility, and LMS preview |
+| Draft rubric-based feedback | [Grading assistant](skills/grading-assistant/SKILL.md) | Every proposed score and its evidence |
+| Review participation evidence | [Participation scoring](skills/participation-scoring/SKILL.md) | Coverage, identity matching, and published rubric |
+| Check claims and calculations | [AI output checker](skills/ai-output-checker/SKILL.md) | Sources and recomputations, never authorship guesses |
+| Draft a question bank | [Quiz builder](skills/quiz-builder/SKILL.md) | Correct answers and target import format |
+| Inspect an exam | [Exam rebalance](skills/exam-rebalance/SKILL.md) | Coverage, ambiguity, and point totals |
+| Plan pre-exam support | [Exam readiness](skills/exam-predictor/SKILL.md) | Missing evidence and any forecast validation |
+| Audit course materials | [Class content analysis](skills/class-content-analysis/SKILL.md) | Sources behind gaps and overlap |
+| Organize course knowledge | [Prof brain](skills/prof-brain/SKILL.md) | Extraction, term conflicts, and restricted material |
+| Draft a syllabus | [Syllabus creator](skills/syllabus-creator/SKILL.md) | Policies, assessment weights, and dates |
+| Plan the term | [Schedule generator](skills/schedule-generator/SKILL.md) | Calendar conflicts, pacing, and prerequisites |
+| Operate Canvas | [Canvas LMS](skills/canvas-lms/SKILL.md) | Exact destination, reviewed content, and saved result |
 
-Each skill carries the things that go wrong and how to avoid them: that a participation scan reads a quiet-but-active student as a zero unless you reconcile nicknames to your roster, that Canvas SpeedGrader silently drops a grade if you do not commit it with a real keyboard Enter, that a neutral comment on a quiz question leaks the answer to every student, that practice assignments do not predict exam scores and will poison a model if you include them. You do not rediscover these the painful way. They are written down.
+## Four ways to use the same skills
 
-You start from a working base, and the AI spends its effort on your actual problem instead of relearning the terrain.
+1. **Chat:** copy a prompt and supply the minimum materials yourself.
+2. **Installed skills:** your agent can discover the same instructions without repeated pasting.
+3. **Connected tools:** an authorized connector or API can retrieve material and prepare drafts.
+4. **Browser or desktop agent:** use the visible interface where supported, within your existing access.
 
-## The guides
+These are options, not levels everyone needs to climb. Installing instructions does not connect accounts, grant permissions, create a scheduler, or make an agent more accurate. Tool availability varies by product, account, and institution.
 
-The skills stay platform-neutral on purpose so they work on any system. The [guides](guides/) hold the specifics so you do not have to rebuild them:
+## The human review rule
 
-- [`canvas-lms.md`](guides/canvas-lms.md): login, the forced inline styling, pushing content, the three ways to enter grades and the SpeedGrader save bug, the quiz and question-bank traps.
-- [`other-lms.md`](guides/other-lms.md): the same operations for Blackboard, Moodle, Brightspace, Schoology, and Google Classroom.
-- [`chat-and-discussion.md`](guides/chat-and-discussion.md): where participation happens and how to pull it, ranked by how workable each source is.
-- [`automation.md`](guides/automation.md): the agentic level and the pull, unify, store, analyze pattern.
+AI drafts. You decide. Nothing reaches a student without a human reading it first. Keep identifiable student records in approved private systems; do not upload them to this public repository or the visual guide. Read [the principles](PRINCIPLES.md) before using real records.
 
-## Make it yours: domains and companies
+The website is a static guide. It copies instructions and downloads files; it does not call a model, process submissions, or install software on your computer.
 
-[`skills/quiz-builder/domains/`](skills/quiz-builder/domains/) ships fifteen subject packs, and [`skills/quiz-builder/companies.md`](skills/quiz-builder/companies.md) ships a catalog of real companies grouped into sets. They exist so the question generator produces something that feels native to your field on the first try.
+## Customize and maintain
 
-They are starters, not limits. A domain can be anything. Copy a pack and write the same sections for nursing, music theory, organic chemistry, constitutional law, whatever you teach. The company catalog is the same idea for scenario flavor, swappable and extensible. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the dead-simple way to add yours and share it back.
+Skills are the source of truth. The website catalog, portable downloads, and [cookbook](cookbook/AI-Teaching-Cookbook.docx) are generated from them. Subject packs and scenario companies are optional examples; use your own field and objectives. See [contributing](CONTRIBUTING.md), [FAQ](FAQ.md), and [glossary](GLOSSARY.md).
 
-## Levels 2 and 3: installed skills and computer control
-
-This is how you reach the top of the ladder. These skills are written as Claude Agent Skills, so you install the folders once and trigger them by name instead of copy-pasting (level 2). From there, a computer-control agent runs them for you (level 3).
-
-Claude Cowork on the desktop is the clearest example of level 3. It can open your files, control your browser, and run these skills, so it does the gathering and the clicking and hands you a draft to approve. The same pattern works with an AI browser extension, an agentic browser, or any computer-use agent. The skills stay the same; the agent just does more of the manual part.
-
-To install the skills, see [`INSTALL.md`](INSTALL.md): one click per skill on Cowork using `.skill` bundles, or one command on Claude Code (`./scripts/install.sh`). Once they are in, just say "help me get started" and the **start-here** skill onboards you: it asks a few questions, offers to pull in your own course materials so the other skills are grounded, and runs your first task end to end.
-
-[`AGENTS.md`](AGENTS.md) is the index an agent reads first: every skill, when to use it, the guides, and the conventions. [`guides/automation.md`](guides/automation.md) explains the computer-control level in detail. None of this is required for the copy-paste path, so there is no wrong place to start.
-
-## Questions
-
-[`FAQ.md`](FAQ.md) answers the common ones: is my student data safe, do I need to code, does it work with my LMS, is using this allowed, what does it cost.
-
-## A note on what this is not
-
-This will not grade your essays for you while you sleep. It will not write your lectures. It is not a replacement for knowing your students. It is a teaching assistant that never gets tired, applies your judgment consistently, carries the lessons you would otherwise learn the hard way, and hands the decision back to you every single time.
-
-## License
-
-MIT. Use it, change it, teach with it. See [`LICENSE`](LICENSE).
+MIT licensed. See [LICENSE](LICENSE).
