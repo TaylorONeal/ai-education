@@ -6,3 +6,11 @@ package.json
 
 # Build artifacts: skill bundles from scripts/build-bundles.sh
 dist/
+
+# Authored and generated offline site
+!web/dist/
+!web/dist/**
+__pycache__/
+*.pyc
+!cookbook/package.json
+!cookbook/package-lock.json

@@ -38,7 +38,7 @@ If you are comfortable with the repo structure, the full conventions live in [`A
 This repo has a consistent voice. Match it.
 
 - No em dashes, ever.
-- Avoid inflated words: pivotal, crucial, leverage, foster, delve, robust, seamless, and friends.
+Use the voice rules in AGENTS.md: conversational, specific language and no inflated wording.
 - Write the way you would explain something to a smart colleague over coffee: concrete, plain, lived-experience. Specific over polished.
 
 ## The four gates before a change is done
@@ -57,3 +57,20 @@ Be decent. This is a community of teachers trying to get time back and treat stu
 ## License
 
 By contributing you agree your contribution is licensed under the repo's [MIT license](LICENSE).
+
+## Rebuild and verify after changes
+
+Use Python 3.9+ and Node.js. Prompts stay in the skills; do not edit generated files by hand.
+
+```sh
+python3 scripts/build-toolkit.py
+node cookbook/build-cookbook.js
+python3 scripts/check-toolkit.py
+python3 -m unittest discover -s tests
+```
+
+Install cookbook dependencies with `npm ci --prefix cookbook` when they are missing. The build creates portable ZIP and `.skill` downloads and the website catalog. Checks cover structure, voice, local links, prompt parity, package contents, and cookbook text. Inspect scan results for sensitive information; automated scans cannot prove absence of PII.
+
+Update [the index](docs/INDEX.md), [review log](docs/REVIEW.md), and [status](STATUS.md) for significant changes. See [web development](web/README.md) for local preview and static hosting.
+
+Use double-quoted JSON-compatible strings for YAML descriptions in SKILL.md. This keeps colons valid and lets the dependency-free catalog builder read metadata consistently.
