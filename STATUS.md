@@ -1,3 +1,15 @@
+# Current update: 2026-09-10
+
+Reviewed all twelve skill entrypoints and refreshed user/agent documentation. Added an offline visual task guide under web/dist with prompt selection, downloads, installation previews, and handoffs for chat, native, repository, connected, browser, cloud, custom, and scheduled agents.
+
+Corrected unsupported AI fingerprint claims, arbitrary exam prediction defaults, missing-as-zero treatment, calendar attendance assumptions, persona score-spread claims, LMS import claims, and Canvas posting-policy ambiguity. Human review remains required.
+
+Replaced destructive installation with explicit targets, dry-run, unchanged detection, portable guide packaging, backups, and rollback. Eight installer tests and repository gates pass. Cookbook regenerated from canonical prompts. See docs/INDEX.md and docs/REVIEW.md. Site publishing state is stored in web/.openai/hosting.json. Sites version 2 published successfully as an owner-private guide at https://ai-teaching-toolkit.bartoncreek.chatgpt.site. Published source revision: 6df2cad5fab4eb0a9382de8fc019075469a92f06. The repository changes remain available for review; no GitHub push was made. No student records or live LMS writes were used.
+
+SOUL.md and USER.md were not present in the repository. Preserved the existing start-here content and prior continuity below. Browser interactions and real account skill discovery are not claimed as tested.
+
+---
+
 # STATUS: AI Teaching Toolkit merge
 
 Working directory: `~/Class/ai-education/` (this folder). This is the local repo that maps to https://github.com/TaylorONeal/ai-education (currently empty, not yet pushed).

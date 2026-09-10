@@ -71,10 +71,14 @@ Pointed at your submission queue, it does a first pass on the whole stack and re
 The skill defaults to producing an artifact and stopping. Putting grades into the LMS is a separate, opt-in step with a hard prerequisite. The SKILL.md spells out both; the short version:
 
 - Mode 1, the default: the AI produces the grading spreadsheet (the `grading-template.xlsx` format or a Google Sheet with the same columns) with estimated scores and notes, and stops. Nothing touches your LMS. You keep the file as your record and enter grades yourself, on your schedule. If you are unsure, this is the mode you want.
-- Mode 2, opt-in: an agent enters the reviewed grades into Canvas, but only after the assignment's grades are set to hidden so students see nothing while it works. Hide first (set the column's Grade Posting Policy to Manual and confirm the crossed-eye indicator), enter the reviewed scores as hidden, read the distribution, and only then manually Post grades. The agent stops at "entered but hidden"; releasing grades is your action alone. The hide-then-post mechanics and the SpeedGrader keyboard-Enter save bug are in `../../guides/canvas-lms.md`, and the equivalents for other platforms are in `../../guides/other-lms.md`.
+- Mode 2, opt-in: an agent enters the reviewed grades into Canvas, but only after the assignment's grades are set to hidden so students see nothing while it works. Set the assignment policy to Manual for future entries and separately hide previously posted grades; verify both policy and visibility, enter the reviewed scores as hidden, read the distribution, and only then manually Post grades. The agent stops at "entered but hidden"; releasing grades is your action alone. The hide-then-post mechanics and the SpeedGrader keyboard-Enter save bug are in `../../guides/canvas-lms.md`, and the equivalents for other platforms are in `../../guides/other-lms.md`.
 
 Whichever mode you pick, the full stack is never auto-posted and no grade is released without your explicit, deliberate Post action.
 
 ## The guardrail and your records
 
 The AI proposes, you grade. It never posts a grade. If you could not explain a score to the student in your own words, do not enter it. Keep what the AI produced and what you changed; "here is the rubric, here is the AI pass, here is my adjustment and why" is a strong position if a grade is ever challenged.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

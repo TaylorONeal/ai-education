@@ -20,3 +20,7 @@ This skill moves grades and student-facing content. The human gate stays: grades
 ## Why it is generic
 
 This skill and its guide carry no course IDs, quiz IDs, or student data. Everything is a placeholder you fill in for your own instance. That keeps it shareable in the open repo and safe to adapt.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.
