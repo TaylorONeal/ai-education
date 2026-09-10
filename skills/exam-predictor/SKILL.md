@@ -5,6 +5,19 @@ description: "Review pre-exam coursework to identify topic gaps and possible sup
 
 # Exam Readiness and Forecasting
 
+## Agent workflow
+
+1. State the source set you will use and what is missing.
+2. Use de-identified data in analysis and keep identity mapping separate.
+3. Weight evidence by recency and predictive value, not convenience.
+4. Present results as risk estimates, not certainties.
+5. Produce the draft artifact and a short review queue.
+6. Stop before anything reaches students, a gradebook, an LMS page, or an official record.
+
+## Output
+
+Prediction table, risk bands, explainable drivers, outreach suggestions, and limitations.
+
 ## The problem
 
 Graded work can help you see which topics need more practice before an exam. It cannot, by itself, tell you a student's future score. This skill separates a useful readiness review from a prediction that needs historical validation.

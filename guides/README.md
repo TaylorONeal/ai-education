@@ -27,6 +27,8 @@ The split is deliberate. A skill is the base you use right now. A guide is the s
 | canvas-page-generator | canvas-lms.md (pushing pages) and other-lms.md |
 | quiz-builder | canvas-lms.md and other-lms.md (pushing banks); automation.md (coverage gaps) |
 | prof-brain | all guides (ingesting materials and reading pages); automation.md (pull everything) |
+| syllabus-creator | canvas-lms.md and other-lms.md (reading existing syllabi and pushing approved pages); automation.md (pull prior syllabi) |
+| schedule-generator | canvas-lms.md and other-lms.md (turning approved schedules into modules and due dates); automation.md (using the schedule CSV as source of truth) |
 
 Every skill also has an "Automate even better" section pointing to `automation.md`.
 

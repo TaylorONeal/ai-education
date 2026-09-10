@@ -44,7 +44,7 @@ def read_public_file(source):
     return validate_public_source(source).read_bytes()
 
 def skills():
-    return sorted(p.parent for p in (ROOT / 'skills').glob('*/SKILL.md'))
+    return sorted(p.parent for p in (ROOT / 'skills').glob('*/SKILL.md') if not p.parent.name.startswith('_'))
 
 def sections(text):
     result = []

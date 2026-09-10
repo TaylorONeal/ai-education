@@ -49,7 +49,7 @@ for skill in skills():
                     path = posixpath.normpath(posixpath.join(posixpath.dirname(name), target.split('#')[0]))
                     check(path in expected, name + ': broken portable link ' + target)
 
-text_files = list((ROOT/'skills').rglob('*.md')) + list((ROOT/'guides').glob('*.md')) + list((ROOT/'docs').glob('*.md')) + [ROOT/n for n in ['README.md','INSTALL.md','GETTING-STARTED.md','FAQ.md','GLOSSARY.md','LinkedIn-Article.md','CONTRIBUTING.md','PRINCIPLES.md']]
+text_files = list((ROOT/'skills').rglob('*.md')) + list((ROOT/'guides').glob('*.md')) + list((ROOT/'docs').glob('*.md')) + [ROOT/n for n in ['README.md','INSTALL.md','GETTING-STARTED.md','FAQ.md','GLOSSARY.md','CONTRIBUTING.md','PRINCIPLES.md']]
 for path in text_files:
     text = path.read_text()
     check('—' not in text, str(path.relative_to(ROOT)) + ': em dash')
@@ -86,4 +86,4 @@ for target in re.findall(r'(?:src|href)="([^"]+)"', html):
     check((ROOT/'web/dist'/target).exists(), 'Website: missing asset ' + target)
 if errors:
     print('\n'.join(errors)); sys.exit(1)
-print('PASS: 12 skill structures, voice/PII patterns, local links, portable packages, catalog prompts, cookbook prompts, and site assets.')
+print('PASS:', len(skills()), 'skill structures, voice/PII patterns, local links, portable packages, catalog prompts, cookbook prompts, and site assets.')

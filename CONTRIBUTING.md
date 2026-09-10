@@ -74,3 +74,24 @@ Install cookbook dependencies with `npm ci --prefix cookbook` when they are miss
 Update [the index](docs/INDEX.md), [review log](docs/REVIEW.md), and [status](STATUS.md) for significant changes. See [web development](web/README.md) for local preview and static hosting.
 
 Use double-quoted JSON-compatible strings for YAML descriptions in SKILL.md. This keeps colons valid and lets the dependency-free catalog builder read metadata consistently.
+
+## Skill quality bar
+
+A skill should be synthetic but specific. Do not remove detail to make it open-source safe. Replace real student, school, course, section, quiz, assignment, URL, and file-path details with realistic placeholders.
+
+Use the file roles from `AGENTS.md`:
+
+- `SKILL.md` is the installed-agent runbook and prompt source.
+- `README.md` is the human field guide.
+- `examples/` contains concrete synthetic artifacts when an example would help an agent imitate the workflow.
+- `_shared/` contains reusable patterns.
+- `_template/` is the starting point for new skills.
+
+Definition of done:
+
+1. The skill keeps its task-specific detail.
+2. The agent knows what to check before asking the teacher for more material.
+3. Copy-paste users can still get one small result.
+4. The output artifact is clear enough to review.
+5. Student-impacting items stop at a human decision point.
+6. `./scripts/audit-content.sh` passes.

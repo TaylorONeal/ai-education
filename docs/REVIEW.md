@@ -42,3 +42,7 @@ These are review scenarios, not claims of executed model evaluations.
 Eight installer tests passed in temporary directories, including failed-replacement rollback. The repository gates passed for all twelve skills, local links, packaged guides, canonical website prompts, and generated cookbook prompt text. JavaScript syntax and the local HTTP entrypoint passed. No browser interaction test or live LMS/agent-account test was performed.
 
 All twelve skills also passed the independent format validator. The downloadable source ZIP was extracted into a temporary directory; its repository checks and a selected Codex-target installation passed there.
+
+## Security and merge follow-up
+
+Changed the website heading to “Choose a teaching task.” Fixed build-time credential and symlink disclosure risks and added browser policy hardening. See the [security review](SECURITY-REVIEW.md) for evidence and limits. Reconciled newer main changes: retained shared patterns, examples, the content audit, syllabus creation, schedule generation, and source organization. The catalog and installer now expose fourteen skills and exclude the template. The removed article stays removed.
