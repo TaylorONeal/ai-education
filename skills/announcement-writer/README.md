@@ -51,3 +51,7 @@ The draft is plain text and works wherever you announce: your LMS announcements 
 ## The guardrail
 
 You approve and you post. The AI drafts in your voice but never speaks to your students on its own. The voice is yours, the facts are yours, the send button is yours. Keep the approval step even in the connected version; an announcement that goes out unread is exactly the small error that erodes trust.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

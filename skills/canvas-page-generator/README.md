@@ -67,3 +67,7 @@ Any editor that accepts inline-styled HTML in a source view can render these pag
 ## The guardrail
 
 The AI builds the page. You read the content and publish it. It is a formatter, not an author. Preview in a browser and on a phone before students see it, and verify every link and due date, because a generated link is exactly the thing to confirm before it goes live.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

@@ -41,3 +41,7 @@ Pointed at your course folder or LMS, it pulls every reading, slide, and assignm
 ## The guardrail
 
 This is advice, not a mandate. You know your students and your constraints. Treat it as a sharp colleague's review: take the findings that hold up, discard the ones that miss context, and you decide what changes. Verify each gap against your full materials before you rewrite a unit, because the AI only sees what you gave it.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

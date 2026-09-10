@@ -1,47 +1,45 @@
-# FAQ
+# Frequently asked questions
 
-Straight answers to the questions teachers actually ask before they trust this.
+## Do I need to code or install anything?
 
-## Do I need to know how to code?
+No. Use [the visual guide](web/dist/index.html) from a downloaded copy, or paste a prompt from a skill into your approved AI chat. Installation only makes instructions reusable in agents that support it.
 
-No. The whole copy-paste level (level 1) is open a file, copy a prompt, fill in your details, paste it into an AI tool. If you can use a website, you can use this. The higher levels involve a one-time setup, but you can ignore those until you want them.
+## Does the website run AI or upload my data?
 
-## Is my students' data safe?
+No. It is a static guide that copies instructions and downloads packages. It has no model connection, student-data upload, analytics, or account setup. Fill private details in your approved AI tool, not the website.
 
-That is up to how you use it, and this toolkit is built to help you keep it safe. The rules live in [`PRINCIPLES.md`](PRINCIPLES.md). The short version: feed the AI the least data the task needs, strip names where you can, use initials or IDs in prompts you paste into consumer tools, and for anything sensitive use a tool your institution has approved with a data agreement, not a personal account. This repo itself ships with no real student data, only placeholders.
+## Which agents work?
 
-## Is it cheating, or against my school's policy, to use AI this way?
+Any chat can follow pasted instructions. Native discovery is documented for Codex, Claude Code, Gemini CLI, Copilot, and Cursor. File-reading agents can follow `SKILL.md` directly. Browser, connected, cloud, custom, and scheduled agents use the same review rules with the tools actually available. See [installation](INSTALL.md) and [agent instructions](guides/agents.md).
 
-Using AI to help you grade and build your own course is not the same as a student using AI to do their work. That said, policies vary, so check yours. The honest move is transparency: tell your students in your syllabus how AI is used in their assessment. That is a [principle](PRINCIPLES.md) here, not an afterthought. Hidden AI grading is how you lose trust and end up with a complaint you cannot defend.
+## Will installing this connect my LMS?
 
-## Will the AI just grade everything for me?
+No. A skill is a method. A connector, authorized API, or supported browser tool provides access. If access is missing, use a small approved export.
 
-No, and it is built so it cannot. Every skill ends with a guardrail: the AI drafts, flags, and predicts, but you make the final call, and nothing reaches a student without your review. If you find yourself approving outputs without reading them, you are using it wrong. The goal is to make you faster and more consistent, not to remove you.
+## Is student data safe to use?
 
-## Does it work with my LMS?
+Use institution-approved tools and storage, minimize identifiers, and follow your local policy and retention requirements. The toolkit is not a compliance certification. Keep student records out of the shared course brain and public repository.
 
-The skills are written to work on any system, because at level 1 you are just copying prompts. For the connected and computer-control levels, there are platform guides: [Canvas](guides/canvas-lms.md) is the deepest, and [other LMS platforms](guides/other-lms.md) (Blackboard, Moodle, Brightspace, Schoology, Google Classroom) are covered with official-doc links and notes on what to verify against your own instance.
+## Can it grade automatically?
+
+It can draft rubric-based scores and reasons. You review every score. Hidden grade entry still requires reviewed values and an authorized destination; releasing grades is a separate human decision.
+
+## Can it detect cheating or predict grades?
+
+It can check claims against evidence, not infer authorship or misconduct from writing style. Readiness reviews can identify topic gaps; numeric forecasts require comparable historical outcomes and held-out validation. No invented confidence bands or automatic student labels.
+
+## Does the quiz CSV import directly?
+
+The table is an authoring format. Confirm the LMS and quiz engine, convert to a supported format, and test an unpublished sample. Never assume a generic CSV is an LMS import package.
 
 ## What does it cost?
 
-The toolkit is free and open source under the [MIT license](LICENSE). You will need an AI tool, and many have free tiers that are enough to start. The connected and computer-control levels may use a paid AI plan or a connector, but that is your choice and your account, not something this repo charges for.
+The toolkit is MIT licensed. Your AI product, hosting, or connector may have its own charges and limits. Check your provider rather than relying on a price here.
 
-## I teach nursing / music theory / law, not business. Is this only for business courses?
+## How do I update or undo an install?
 
-No. The example domain packs and the company catalog lean toward business and analytics because that is the author's world, but they are starters, not limits. Nothing about the skills assumes a subject. You copy a domain pack and write the same sections for your field. [`CONTRIBUTING.md`](CONTRIBUTING.md) shows the simple way to add your subject and share it back if you want.
+Run the installer preview, then install. Existing changed folders move into timestamped backups outside skill discovery. See [the update and restore instructions](INSTALL.md).
 
-## What is Claude Cowork and do I have to use it?
+## Why did an agent stop?
 
-Cowork is a desktop app where the AI can see your files and control your browser, which lets it run these skills and do the gathering and clicking for you. It is the clearest example of the top level of the toolkit, but it is not required. You can get real value at the copy-paste level with any AI tool. See the [GLOSSARY](GLOSSARY.md) and [`guides/automation.md`](guides/automation.md).
-
-## The AI made up a number or a fake source. Now what?
-
-That is the model doing what models do when they are unsure, and it is exactly why you read everything before you use it. The [`ai-output-checker`](skills/ai-output-checker/) skill is built to catch fabricated numbers and invented sources in student work, and you apply the same caution to the AI's own output. Looking confident is not the same as being right.
-
-## How do I report a problem or suggest a skill?
-
-Open an issue on the [repo](https://github.com/TaylorONeal/ai-education/issues). There are templates for a bug, a new skill idea, and a new subject pack. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
-## Where do I start?
-
-[`GETTING-STARTED.md`](GETTING-STARTED.md). It walks you through one full task in about ten minutes, no setup.
+Ask it to identify the missing source, failed tool, or required review. It should finish useful draft work before asking. It must not bypass account controls or release unreviewed student-facing material.

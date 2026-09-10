@@ -21,10 +21,10 @@ Reduce ingestion friction: if their LMS is connected, pull their materials direc
 | start-here | A new user needs onboarding: orient, ask, ingest, route to a first win | `skills/start-here/` |
 | participation-scoring | Grading participation fairly from real activity across channels, DMs, meetings | `skills/participation-scoring/` |
 | grading-assistant | Applying a rubric consistently and catching correct-but-differently-worded answers; producing the grading spreadsheet | `skills/grading-assistant/` |
-| ai-output-checker | Auditing AI-assisted student work for fabricated or impossible numbers, invented sources, and pasted-AI artifacts | `skills/ai-output-checker/` |
+| ai-output-checker | Auditing AI-assisted student work for fabricated or impossible numbers, invented sources, and calculation errors | `skills/ai-output-checker/` |
 | class-content-analysis | Auditing your own course materials for gaps, overlap, reading level, alignment, and drift across terms | `skills/class-content-analysis/` |
-| exam-rebalance | Checking an exam's difficulty and coverage, simulating six student personas, and comparing against prior versions before anyone takes it | `skills/exam-rebalance/` |
-| exam-predictor | Forecasting who is at risk on an upcoming exam from graded coursework, weighting assignments by what actually predicts | `skills/exam-predictor/` |
+| exam-rebalance | Checking an exam's difficulty and coverage, simulating six student personas, as qualitative checks, and comparing prior versions | `skills/exam-rebalance/` |
+| exam-predictor | Reviewing pre-exam topic evidence; forecasting only with validated historical outcomes | `skills/exam-predictor/` |
 | announcement-writer | Drafting class announcements in your captured voice with the AI tells stripped | `skills/announcement-writer/` |
 | canvas-page-generator | Turning plain text into a clean, styled course page; capturing brand guidelines | `skills/canvas-page-generator/` |
 | quiz-builder | Generating scenario-based question banks that discriminate, in a selectable domain | `skills/quiz-builder/` |
@@ -41,6 +41,10 @@ The skills are LMS-agnostic on purpose. The guides hold the wiring so an educato
 - `guides/other-lms.md` for Blackboard, Moodle, Brightspace, Schoology, Google Classroom: auth, read, push grades, push content.
 - `guides/chat-and-discussion.md` for participation and announcement sources: LMS forums, Slack, Discord, Teams, Google Classroom, Telegram, WhatsApp, ranked by viability, with rate limits and name-matching gotchas.
 - `guides/automation.md` for the agentic tier that every skill points to: drive a browser or connector to pull everything, unify it, store a CSV, analyze across terms.
+
+## Agent compatibility
+
+Read `guides/agents.md` for chat, native-skill, repository, connected, browser, cloud, custom API, and scheduled agents. Read `docs/INDEX.md` for the audience-based documentation map. Installation does not grant tool access. The optional visual guide is in `web/dist/index.html`.
 
 ## The three automation tiers
 
@@ -59,7 +63,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 ## Top-level docs (for humans, and for you)
 
 - `README.md`: the teacher-facing funnel and the three-level ladder (plain chat, chat plus skills, computer control plus skills).
-- `INSTALL.md`: the three install paths (copy-paste, Cowork `.skill` bundles, Claude Code script) and how to point an agent at the repo. `scripts/install.sh` copies skills into `~/.claude/skills/`; `scripts/build-bundles.sh` packages each skill as a `.skill` for Cowork.
+- `INSTALL.md`: the three install paths (copy-paste, Cowork `.skill` bundles, Claude Code script) and how to point an agent at the repo. `scripts/install.py` installs portable skills for multiple agents with previews and backups; `scripts/build-toolkit.py` generates ZIPs, `.skill` files, and the visual guide catalog.
 - `GETTING-STARTED.md`: the no-setup first task, plus a level-1-vs-level-3 comparison.
 - `GLOSSARY.md` and `FAQ.md`: plain definitions and the common teacher questions.
 - `CONTRIBUTING.md`: the contributor path, leading with adding a subject pack.
@@ -77,7 +81,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 1. Create `skills/<name>/SKILL.md` with the full section structure, and a `README.md` deep dive.
 2. Keep it LMS-agnostic; put platform specifics in a guide and link to it.
 3. If it is a copy-paste teaching or authoring skill, add it to the `ORDER` array in `cookbook/build-cookbook.js`. Operational skills stay out of the cookbook.
-4. Regenerate the cookbook: `cd cookbook && npm install docx && node build-cookbook.js`.
+4. Regenerate the cookbook: `npm ci --prefix cookbook`, then `node cookbook/build-cookbook.js`.
 5. Run the four gates before calling it done.
 
 ## The four gates (run before shipping)
@@ -90,3 +94,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 ## Continuity
 
 `STATUS.md` is the running log of what is done, what is decided, and what is open. Update it after any significant change so a fresh session can resume.
+
+## Build and checks
+
+After edits, run `python3 scripts/build-toolkit.py`, `node cookbook/build-cookbook.js`, `python3 scripts/check-toolkit.py`, and `python3 -m unittest discover -s tests`. Update docs and STATUS.md. Repository-relative paths and documented install destinations are allowed; personal machine paths and student identifiers are not.
