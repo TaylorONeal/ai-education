@@ -18,7 +18,7 @@ Plain definitions for the words used in this toolkit. One sentence each, no jarg
 
 **Computer-control agent**: Any AI that can operate your computer or browser on your behalf (Claude Cowork, an AI browser extension, or an agentic browser); this is what powers the highest level of the toolkit.
 
-**Connector (also called MCP)**: A one-time setup that links an AI to one of your tools (your LMS, chat app, or calendar) so it can pull and push information directly instead of you copying it by hand.
+**Connector**: An integration that gives an AI specific, authorized access to a tool or data source. Some connectors use MCP, a protocol for exposing tools and resources. Installing a skill does not install a connector.
 
 **LMS (Learning Management System)**: The platform your school uses to run courses, post grades, and collect work; Canvas, Blackboard, Moodle, Brightspace, Schoology, and Google Classroom are the common ones.
 
