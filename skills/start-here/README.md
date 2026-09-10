@@ -31,3 +31,7 @@ The session ends with: the teacher knows the one rule, their biggest time-sink n
 ## The guardrail
 
 This skill sets up and routes; it never touches student data or a gradebook. Every real task runs through a skill with its own human-in-the-loop guardrail. Keep onboarding honest: it hands the teaching back to the teacher, it does not quietly start doing it for them.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.

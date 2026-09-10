@@ -123,3 +123,7 @@ This is the payoff: build the brain once, and every other skill gets sharper bec
 ## The guardrail
 
 The brain holds course knowledge, not student records. Keep rosters, grades, and individual student work out of it, especially anything synced to a third-party tool. Student-facing analysis belongs in the skills built to handle it under their own guardrails. The brain is the one place that should be safe to share with a colleague or sync to Notion without exposing a single student.
+
+## Agent use and review
+
+Use the [agent guide](../../guides/agents.md) for tool discovery, source coverage, privacy, recovery, and reviewed writes. For install and update options, use [INSTALL.md](../../INSTALL.md). Installation supplies instructions, not account access. Read the current SKILL.md before running the method.
