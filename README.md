@@ -19,6 +19,13 @@ Choose a teaching task. Give your AI the relevant instructions and materials. Re
 
 Start with [prof-brain](skills/prof-brain/SKILL.md) to organize sources without moving originals, then [class-content-analysis](skills/class-content-analysis/SKILL.md) to identify gaps. Draft the syllabus and schedule before creating pages, question banks, or exam revisions. Review each artifact before publishing. For one urgent task, go straight to that skill.
 
+![Course workflow: organize sources, diagnose gaps, build materials, check exams, review readiness with evidence, and make the final human decision.](docs/images/course-building-workflow.svg)
+
+- New to the toolkit? Use [start-here](skills/start-here/SKILL.md) first; it is optional.
+- [Course page generator](skills/canvas-page-generator/SKILL.md) and [quiz-builder](skills/quiz-builder/SKILL.md) work independently. You do not need to create a page before building questions.
+- Use [exam-rebalance](skills/exam-rebalance/SKILL.md) before an exam. Use [exam-predictor](skills/exam-predictor/SKILL.md) only once graded coursework exists; numerical forecasts also require validated historical outcomes.
+- **Human review is the final step:** read, revise, and approve every artifact before it reaches students.
+
 ## Pick the work you need done
 
 | Task | Skill | Review before using |
