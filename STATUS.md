@@ -1,3 +1,9 @@
+# Course workflow publication: 2026-09-15
+
+Restored the course workflow as an accessible committed SVG against the current toolkit. The earlier quoted commit 7df4f88 was not available on GitHub, so this change preserves the newer README and skill guidance. Optional onboarding, independent page/question creation, pre-exam checks, evidence requirements, and final human review are explicit. Updated the documentation index and rebuilt distribution assets. SOUL.md and USER.md are absent.
+
+Validation: content audit, toolkit gates (including cookbook prompt integrity), Python unit tests, frontend security tests, JavaScript syntax, SVG metadata and README reference, and whitespace checks. Publication targets are GitHub main and the existing owner-private Sites guide; publishing does not change its audience.
+
 # Security and integration update: 2026-09-10
 
 Changed the visual heading to “Choose a teaching task.” Added distribution source checks and rendering regression tests; see docs/SECURITY-REVIEW.md. Integrated newer main changes, preserving two new skills, shared patterns, examples, and the content audit. Rebuilt the fourteen-skill catalog, downloads, and cookbook.
