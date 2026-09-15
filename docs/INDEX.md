@@ -3,6 +3,7 @@
 | Audience or task | Document |
 |---|---|
 | Everyone: what this is and which task to choose | [README](../README.md) |
+| Course planning sequence | [Workflow and explanation](../README.md#plan-or-refresh-a-course) |
 | Teachers: one result without setup | [Getting started](../GETTING-STARTED.md) |
 | Visual setup, prompt copying, downloads | [Web guide](../web/dist/index.html) |
 | Install, verify, update, restore | [Installation](../INSTALL.md) |

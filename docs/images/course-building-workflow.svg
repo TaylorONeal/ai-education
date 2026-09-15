@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="970" viewBox="0 0 960 970" role="img" aria-labelledby="title desc">
+<title id="title">Course building workflow</title>
+<desc id="desc">Optional onboarding, organize sources, diagnose gaps, plan and create materials, check exams before use, review readiness with evidence, and require human approval before student use.</desc>
+<rect width="960" height="970" rx="24" fill="#101827"/>
+<g font-family="system-ui, sans-serif">
+<text x="48" y="55" fill="#ffffff" font-size="30" font-weight="700">Plan or refresh a course</text>
+<text x="48" y="89" fill="#cbd5e1" font-size="18">Use the whole sequence, or go straight to one skill.</text>
+<rect x="48" y="120" width="864" height="94" rx="14" fill="#1e293b" stroke="#64748b"/>
+<text x="72" y="154" fill="#ffffff" font-size="23" font-weight="600">Optional: start-here</text>
+<text x="72" y="186" fill="#e2e8f0" font-size="18">Choose one task and the smallest useful input.</text>
+<path d="M480 217 v15 m-5 -5 l5 5 5 -5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="48" y="238" width="864" height="94" rx="14" fill="#1e293b" stroke="#64748b"/>
+<text x="72" y="272" fill="#ffffff" font-size="23" font-weight="600">1. Organize with prof-brain</text>
+<text x="72" y="304" fill="#e2e8f0" font-size="18">Index course sources; preserve originals.</text>
+<path d="M480 335 v15 m-5 -5 l5 5 5 -5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="48" y="356" width="864" height="94" rx="14" fill="#1e293b" stroke="#64748b"/>
+<text x="72" y="390" fill="#ffffff" font-size="23" font-weight="600">2. Diagnose with class-content-analysis</text>
+<text x="72" y="422" fill="#e2e8f0" font-size="18">Find gaps, overlap, and alignment issues.</text>
+<path d="M480 453 v15 m-5 -5 l5 5 5 -5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="48" y="474" width="864" height="94" rx="14" fill="#1e293b" stroke="#64748b"/>
+<text x="72" y="508" fill="#ffffff" font-size="23" font-weight="600">3. Plan and build</text>
+<text x="72" y="540" fill="#e2e8f0" font-size="18">Draft syllabus and schedule; create pages or quizzes independently.</text>
+<path d="M480 571 v15 m-5 -5 l5 5 5 -5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="48" y="592" width="864" height="94" rx="14" fill="#1e293b" stroke="#64748b"/>
+<text x="72" y="626" fill="#ffffff" font-size="23" font-weight="600">4. Check the exam before use</text>
+<text x="72" y="658" fill="#e2e8f0" font-size="18">exam-rebalance: review coverage, difficulty, and ambiguity.</text>
+<path d="M480 689 v15 m-5 -5 l5 5 5 -5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="48" y="710" width="864" height="94" rx="14" fill="#1e293b" stroke="#64748b"/>
+<text x="72" y="744" fill="#ffffff" font-size="23" font-weight="600">5. Review readiness when evidence exists</text>
+<text x="72" y="776" fill="#e2e8f0" font-size="18">exam-predictor: use graded work; forecast only with validated history.</text>
+<path d="M480 807 v15 m-5 -5 l5 5 5 -5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="48" y="828" width="864" height="94" rx="14" fill="#134e4a" stroke="#64748b"/>
+<text x="72" y="862" fill="#ffffff" font-size="23" font-weight="600">6. Make the human decision</text>
+<text x="72" y="894" fill="#e2e8f0" font-size="18">Read, revise, and approve every artifact before students see it.</text>
+</g></svg>
