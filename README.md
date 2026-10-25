@@ -4,6 +4,16 @@ Choose a teaching task. Give your AI the relevant instructions and materials. Re
 
 **No coding or installation required.** Start with [the visual guide](web/dist/index.html) after downloading this repository, or follow [your first task](GETTING-STARTED.md). The guide also works offline: open `web/dist/index.html` in a browser.
 
+## Why this exists
+
+Teaching is full of work that is necessary and invisible. Rewriting the same announcement
+every week. Checking whether an exam actually covers what you taught. Writing feedback
+specific enough to be useful, forty times over. None of it is teaching, and all of it eats
+the hours you would rather spend on the course.
+
+These are instructions you hand your AI for those specific jobs. A human reads every draft
+before it reaches a student. That part is not optional.
+
 ## Choose your starting point
 
 | You want to... | Start here |
@@ -63,5 +73,22 @@ The website is a static guide. It copies instructions and downloads files; it do
 ## Customize and maintain
 
 Skills are the source of truth. The website catalog, portable downloads, and [cookbook](cookbook/AI-Teaching-Cookbook.docx) are generated from them. Subject packs and scenario companies are optional examples; use your own field and objectives. See [contributing](CONTRIBUTING.md), [FAQ](FAQ.md), and [glossary](GLOSSARY.md).
+
+
+---
+
+## More from me
+
+I'm Taylor O'Neal. I teach digital analytics at Miami University and write about doing it
+honestly, which is most of why this repo exists.
+
+- [thinkermetrics.com](https://thinkermetrics.com) for the analytics playbooks these came from
+- [@thinkermetrics](https://www.youtube.com/@thinkermetrics) on YouTube for analytics walkthroughs
+- [tayloroneal.com](https://www.tayloroneal.com) for everything else I work on
+- [@businesstaylor](https://x.com/businesstaylor) on X and [@grizzpm](https://www.youtube.com/@grizzpm) on YouTube
+
+If this saved you time, a star helps other people find it. Issues and PRs are welcome.
+
+## License
 
 MIT licensed. See [LICENSE](LICENSE).
