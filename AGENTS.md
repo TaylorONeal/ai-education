@@ -112,3 +112,7 @@ When grounding any skill, prefer reading from the prof-brain knowledge base over
 ## Build and checks
 
 After edits, run `python3 scripts/build-toolkit.py`, `node cookbook/build-cookbook.js`, `python3 scripts/check-toolkit.py`, and `python3 -m unittest discover -s tests`. Update docs and STATUS.md. Repository-relative paths and documented install destinations are allowed; personal machine paths and student identifiers are not.
+
+## Secrets
+
+Never write a secret into any file: code, config, docs, notes, prompts, submission notes, logs or commit messages. That covers API keys (RevenueCat and Stripe `sk_` keys included), Supabase service role keys and JWT secrets, access tokens (Codemagic, Vercel, GitHub, Expo), deploy keys, and the contents of `.p8` or `.pem` files. Write where the secret lives instead, for example "RevenueCat dashboard > API keys" or "Supabase secrets", and read it from an environment variable. The secret-scan check (`.github/workflows/secret-scan.yml`, rules in `.gitleaks.toml`) fails any pull request that adds one. If a real secret was ever committed, removing it is not enough: say so, so the key gets rotated.
