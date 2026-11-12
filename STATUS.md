@@ -22,7 +22,7 @@ SOUL.md and USER.md were not present in the repository. Preserved the existing s
 
 # STATUS: AI Teaching Toolkit merge
 
-Working directory: `~/Class/ai-education/` (this folder). This is the local repo that maps to https://github.com/TaylorONeal/ai-education (currently empty, not yet pushed).
+Repo: https://github.com/TaylorONeal/ai-education.
 
 - Updated `skills/prof-brain/` so the setup flow now asks whether to create an optional source inbox of copied originals before building the Markdown brain. The source inbox is organized by term and type, keeps an `_intake-log.csv`, and tells agents to copy rather than move originals unless explicitly asked. The skill and README now direct connected agents to use Canvas or another LMS through a browser or connector, find related past-semester course shells, walk modules/pages/files/assignments/quizzes/rubrics/exams, and organize those sources before summarizing. `guides/automation.md` now names prof-brain in the pull-everything pattern.
 - Added syllabus-creator and schedule-generator as new teaching skills. prof-brain now includes syllabus analysis as part of the course brain, and class-content-analysis, exam-rebalance, and quiz-builder now include proactive post-analysis fix modes that offer concrete next actions instead of stopping at diagnosis. Updated the README, AGENTS index, guides index, cookbook order, and audit script so the new skills are first-class copy-paste skills.
@@ -64,7 +64,7 @@ Reframed the front door for medium-low technical teachers, added the open-source
 
 - Added the onboarding and install layer to reduce friction for new users. New `skills/start-here/` (SKILL + README): the front-door skill that orients, asks one question at a time, offers prof-brain ingestion, and routes to one first-win skill. Operational skill, stays out of the cookbook. New `INSTALL.md` with three verified paths: copy-paste (none), Cowork `.skill` bundles (Customize > Settings > Capabilities > Skills > + > Save skill), and Claude Code (`./scripts/install.sh` copying into `~/.claude/skills/`, or `.claude/skills/` per project). New `scripts/install.sh` and `scripts/build-bundles.sh` (builds one `.skill` zip per skill into `dist/`). Verified the install path facts via a claude-code-guide lookup: skills auto-load only from `~/.claude/skills/` or `.claude/skills/`, not from this repo's `skills/`, which is why the install script and AGENTS.md onboarding note exist. AGENTS.md gained an "Onboarding a new user" section, a start-here index row, and a top-level docs list. README points to INSTALL and start-here from the levels-2-and-3 section. `dist/` is gitignored (build artifacts); distribute the `.skill` bundles via a GitHub Release.
 
-Decision this pass: kept level 1 tool-agnostic (any AI tool) per Taylor's call, but did NOT bury Cowork. Cowork and computer control are framed as the top of the ladder and the real point of the toolkit, since plain copy-paste barely reduces the manual work. The two are reconciled: agnostic on-ramp, computer-control destination.
+Decision this pass: kept level 1 tool-agnostic (any AI tool) per the maintainer's call, but did NOT bury Cowork. Cowork and computer control are framed as the top of the ladder and the real point of the toolkit, since plain copy-paste barely reduces the manual work. The two are reconciled: agnostic on-ramp, computer-control destination.
 
 Still local only. The new files are NOT yet pushed to GitHub (see Left to do).
 
@@ -133,7 +133,6 @@ Merged the detailed real source material on this machine into the generic v1 tha
 
 ## Left to do
 
-- Push to GitHub. The sandbox does not sync new files back to the Mac git, and git ops should be run from the Mac terminal, not the sandbox. From the Mac: `cd ~/Class/ai-education`, then `git init`, add the remote `https://github.com/TaylorONeal/ai-education.git`, commit, push.
 - If you want a PDF of the cookbook, open the .docx and export, or add a PDF step to the build script.
 - Decide the hallucination-story swap (open question 1).
 
